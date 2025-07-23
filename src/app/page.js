@@ -28,7 +28,8 @@ export default function Home() {
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Karşılaştığınız durumu maksimum 30 saniyelik bir videoya kaydedin.</li>
             <li>Videonun içinde yer ve zaman bilgisi mutlaka belirtilmelidir! (sesli ya da yazılı olabilir).</li>
-            <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
+            <li>WhatsApp hattımıza gönderin: <strong className="text-white">0 530 406 66 86</strong>
+</li>
           </ul>
 
           {/* Modern WhatsApp Butonu */}
