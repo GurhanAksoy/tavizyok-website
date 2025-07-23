@@ -1,41 +1,58 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import '@/app/globals.css';
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-6 py-4 shadow-md border-b sticky top-0 bg-white z-50">
-        <div className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Taviz Yok Logo" width={48} height={48} priority />
-        </div>
-        <div className="space-x-6 text-sm font-medium">
-          <Link href="/yasal-sartlar" className="hover:text-[var(--accent)]">Yasal Şartlar</Link>
-          <Link href="/hakkimizda" className="hover:text-[var(--accent)]">Hakkımızda</Link>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="flex flex-col items-center justify-center text-center px-4 py-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">Haksızlığa ve Hukuksuzluğa TAVİZ YOK</h1>
-        <p className="max-w-2xl text-lg text-gray-700 mb-8">
-          Hukuka, insan haklarına ve kamu vicdanına aykırı her durumu kısa videolarla bildirin.  
-          Kurumlara iletelim, kamuoyuyla paylaşalım.
+    <main className="flex min-h-screen flex-col items-center justify-between p-4 bg-white text-black">
+      {/* Hero Section */}
+      <section className="w-full text-center py-12">
+        <Image
+          src="/logo.png"
+          alt="TAVİZ YOK logosu"
+          width={150}
+          height={150}
+          priority
+        />
+        <h1 className="text-4xl font-bold mt-6">TAVİZ YOK</h1>
+        <p className="mt-4 text-xl max-w-2xl mx-auto">
+          Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu bildirmenin pratik ve güvenli yolu.
         </p>
-        <Link
-          href="/bildir"
-          className="bg-[var(--accent)] hover:bg-[#cc0000] text-white font-semibold py-3 px-6 rounded-lg shadow"
-        >
-          Bildirim Gönder
-        </Link>
+      </section>
+
+      {/* Platform Nedir */}
+      <section className="w-full max-w-3xl px-4 py-8">
+        <h2 className="text-2xl font-semibold mb-4">Platform Nedir?</h2>
+        <p className="text-lg">
+          TAVİZ YOK, vatandaşların Türkiye sınırları içinde karşılaştığı hukuka aykırı olayları, kısa videolarla bize iletebildiği
+          tarafsız ve kamu yararına çalışan bir iletişim sistemidir.
+        </p>
+      </section>
+
+      {/* Nasıl Bildirim Gönderilir */}
+      <section className="w-full max-w-3xl px-4 py-8 bg-gray-50 rounded-xl shadow-md">
+        <h2 className="text-2xl font-semibold mb-4">Nasıl Bildirim Gönderilir?</h2>
+        <ol className="list-decimal list-inside space-y-2 text-lg">
+          <li>Karşılaştığınız durumu maksimum 30 saniyelik bir videoya kaydedin.</li>
+          <li>Videonun içinde yer ve zaman bilgisi belirtin (sesli ya da yazılı olabilir).</li>
+          <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
+        </ol>
+      </section>
+
+      {/* Kurallar */}
+      <section className="w-full max-w-3xl px-4 py-8">
+        <h2 className="text-2xl font-semibold mb-4">Kurallar ve Şartlar</h2>
+        <ul className="list-disc list-inside space-y-2 text-lg">
+          <li>Gönderilen videoların içeriği gerçeği yansıtmalıdır.</li>
+          <li>Yer ve zaman bilgisi olmayan videolar geçerli sayılmaz.</li>
+          <li>Gönderim yaparak <a href="https://www.tavizyok.com" className="underline">www.tavizyok.com</a>'daki şartları kabul etmiş sayılırsınız.</li>
+          <li>Videolar, gerekirse buzlanarak sosyal medyada paylaşılır. Ancak resmi kurumlara orijinal haliyle iletilir.</li>
+        </ul>
       </section>
 
       {/* Footer */}
-      <footer className="text-center text-sm text-gray-500 py-8 border-t">
-        © 2025 Taviz Yok. Tüm hakları saklıdır. www.tavizyok.com
+      <footer className="w-full text-center py-8 text-sm text-gray-500">
+        <p>📞 WhatsApp: 0 530 406 66 86 | 📧 tavizyokplatformu@gmail.com</p>
+        <p>© {new Date().getFullYear()} TAVİZ YOK. Tüm hakları saklıdır.</p>
       </footer>
     </main>
-  );
+  )
 }
