@@ -1,40 +1,43 @@
+
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import '@/app/globals.css';
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 py-10 px-6 md:px-20">
-      <h1 className="text-4xl font-bold text-center mb-6">TAVİZ YOK</h1>
-      <p className="text-center text-lg max-w-2xl mx-auto mb-10">
-        TAVİZ YOK; Trafik, Sağlık, Çevre, Gıda ve Kamu düzeni başta olmak üzere,
-        hukuka, insan haklarına veya kamu vicdanına aykırı her durumu kısa videolarla
-        bildirebildiğiniz tarafsız bir iletişim platformudur.
-      </p>
+    <main className="min-h-screen bg-white text-black">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-6 py-4 shadow-md border-b sticky top-0 bg-white z-50">
+        <div className="flex items-center gap-2">
+          <Image src="/logo.png" alt="Taviz Yok Logo" width={50} height={50} />
+          <span className="text-xl font-bold tracking-wide">TAVİZ YOK</span>
+        </div>
+        <div className="space-x-6 text-sm font-medium">
+          <Link href="/yasal-sartlar" className="hover:text-red-600 transition">Yasal Şartlar</Link>
+          <Link href="/hakkimizda" className="hover:text-red-600 transition">Hakkımızda</Link>
+        </div>
+      </nav>
 
-      <div className="max-w-2xl mx-auto mb-12 bg-white shadow-md p-6 rounded-xl space-y-4">
-        <h2 className="text-xl font-semibold">Bildirim Gönder</h2>
-        <p>
-          Yaşadığınız aksaklıkları ya da hukuksuzlukları 30 saniyelik videolarla iletebilirsiniz.
-          Yer ve zaman bilgisi mutlaka belirtilmelidir.
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center px-4 py-24">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Haksızlığa ve Hukuksuzluğa TAVİZ YOK</h1>
+        <p className="max-w-2xl text-lg text-gray-700 mb-8">
+          Hukuka, insan haklarına ve kamu vicdanına aykırı her durumu kısa videolarla bildirin.  
+          Kurumlara iletelim, kamuoyuyla paylaşalım.
         </p>
-        <input type="file" accept="video/*" className="w-full border p-2 rounded" />
-        <input placeholder="Yer Bilgisi (örn: Ankara, Kızılay)" className="w-full border p-2 rounded" />
-        <input placeholder="Zaman Bilgisi (örn: 22 Temmuz 2025, 14:30)" className="w-full border p-2 rounded" />
-        <button className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800">
-          Gönder
-        </button>
-      </div>
-
-      <section className="max-w-3xl mx-auto text-sm text-gray-600 space-y-4">
-        <p>
-          Gönderilen içerikler titizlikle incelenir, ilgili kurumlara iletilir ve kamuoyuna açık
-          şekilde paylaşılır. İçeriklerin doğruluğu ve sorumluluğu gönderene aittir.
-        </p>
-        <p>
-          TAVİZ YOK, resmî denetim ve yaptırım yetkisine sahip bir merci değildir. Bildirimleri
-          ilgili kurumlarla paylaşan, tarafsız bir iletişim platformudur.
-        </p>
-        <p>
-          Gönderim yaparak <a href="/yasal-sartlar" className="text-blue-600 underline">yasal şartları</a> kabul etmiş sayılırsınız.
-        </p>
+        <Link
+          href="/bildir"
+          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow"
+        >
+          Bildirim Gönder
+        </Link>
       </section>
+
+      {/* Footer */}
+      <footer className="text-center text-sm text-gray-500 py-8 border-t">
+        © 2025 Taviz Yok. Tüm hakları saklıdır.
+      </footer>
     </main>
   );
 }
