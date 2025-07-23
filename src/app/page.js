@@ -43,7 +43,7 @@ export default function Home() {
         <ul className="list-disc list-inside space-y-2 text-lg">
           <li>Gönderilen videoların içeriği gerçeği yansıtmalıdır.</li>
           <li>Yer ve zaman bilgisi olmayan videolar geçerli sayılmaz.</li>
-          <li>Gönderim yaparak <a href="https://www.tavizyok.com" className="underline">www.tavizyok.com</a>'daki şartları kabul etmiş sayılırsınız.</li>
+          <li>Gönderim yaparak <a href="https://www.tavizyok.com" className="underline">www.tavizyok.com</a>&apos;daki şartları kabul etmiş sayılırsınız.</li>
           <li>Videolar, gerekirse buzlanarak sosyal medyada paylaşılır. Ancak resmi kurumlara orijinal haliyle iletilir.</li>
         </ul>
       </section>
