@@ -1,30 +1,34 @@
 'use client';
-import Navbar from '../../components/Navbar';
+import Navbar from '@/components/Navbar';
 
 export default function YasalUyari() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 min-h-screen bg-white text-gray-900 px-6 py-12 max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Yasal Uyarı ve Sorumluluk Reddi</h1>
-        <p className="mb-4">
-          TAVİZ YOK, yalnızca bir dijital iletişim ve bilgilendirme platformudur. Platform aracılığıyla iletilen içerikler,
-          kullanıcıların kendi rızasıyla paylaştığı bilgilerdir. Gönderilen içeriklerin doğruluğu, güncelliği ve yasal uygunluğu tamamen kullanıcı sorumluluğundadır.
+      <main className="pt-24 min-h-screen bg-white text-gray-900 px-6 py-12 max-w-4xl mx-auto space-y-4 leading-relaxed">
+        <h1 className="text-3xl font-bold">Yasal Uyarı ve Sorumluluk Reddi</h1>
+        <p>
+          TAVİZ YOK, yalnızca bir dijital iletişim ve kamusal bilgilendirme platformudur. Kullanıcılar tarafından paylaşılan içeriklerin tüm hukuki,
+          etik ve cezai sorumluluğu, içeriği gönderen kişiye aittir.
         </p>
-        <p className="mb-4">
-          TAVİZ YOK, iftira, hakaret, özel hayatın gizliliğini ihlal eden, manipülatif veya kurgu içeriklerden sorumlu tutulamaz.
-          İçerikler ön incelemeye tabi tutulabilir, ancak platform tüm içerikleri denetlemekle yükümlü değildir.
-        </p>
-        <p className="mb-4">
-          TAVİZ YOK yalnızca kamu yararını ilgilendiren içerikleri; ilgili kamu kurumlarına ve sosyal medya platformlarında kamuoyuna açık şekilde iletir.
-        </p>
-        <p className="mb-4">
-          Kullanıcı, içerik gönderimiyle birlikte bu koşulları önceden okuduğunu, anladığını ve kabul ettiğini taahhüt eder.
+        <p>Platform;</p>
+        <ul className="list-disc list-inside">
+          <li>İftira, hakaret, özel hayatın ihlali,</li>
+          <li>Gerçek dışı, kurgu veya manipülatif içeriklerden</li>
+        </ul>
+        <p>sorumlu tutulamaz.</p>
+        <p>
+          TAVİZ YOK, gönderilen içerikleri ön incelemeye tabi tutma hakkını saklı tutar; ancak tüm içerikleri denetlemekle yükümlü değildir.
+          Yalnızca kamu yararı taşıyan içerikler, ilgili resmi kurumlara yönlendirilir ve/veya sosyal medya platformlarında kamuoyuyla paylaşılır.
         </p>
         <p>
-          Gönderilen video ve içeriklerin tüm yayın, iletim, çoğaltma ve dağıtım hakkı TAVİZ YOK platformuna aittir. Kullanıcı bu içerikleri daha sonra farklı bir
-          platformda paylaşmak, silmek veya geri çekmek hakkına tek başına sahip değildir. İçerikler, TAVİZ YOK logosu veya işaretleriyle yayımlanır.
+          Kullanıcı, içerik gönderimi ile birlikte aşağıdaki koşulları önceden okuyup, anladığını ve kayıtsız şartsız kabul ettiğini taahhüt eder:
         </p>
+        <ul className="list-disc list-inside">
+          <li>Gönderilen içeriklerin yayın, iletim, çoğaltma ve dağıtım hakları münhasıran TAVİZ YOK platformuna aittir.</li>
+          <li>Kullanıcı, gönderdiği içeriği daha sonra geri çekme, silme veya başka bir platformda paylaşma hakkına tek başına sahip değildir.</li>
+          <li>İçerikler, gerektiğinde TAVİZ YOK logosu, amblemi veya işaretleriyle yayımlanabilir.</li>
+        </ul>
       </main>
     </>
   );
