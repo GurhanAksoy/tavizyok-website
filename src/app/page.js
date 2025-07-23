@@ -32,7 +32,7 @@ export default function Home() {
           ilgili kurumlarla paylaşan, tarafsız bir iletişim platformudur.
         </p>
         <p>
-          Gönderim yaparak <a href=\"/yasal-sartlar\" className=\"text-blue-600 underline\">yasal şartları</a> kabul etmiş sayılırsınız.
+          Gönderim yaparak <a href="/yasal-sartlar" className="text-blue-600 underline">yasal şartları</a> kabul etmiş sayılırsınız.
         </p>
       </section>
     </main>
