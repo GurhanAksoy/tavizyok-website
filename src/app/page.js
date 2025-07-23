@@ -17,7 +17,7 @@ export default function Home() {
           href="https://wa.me/905304066686"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300"
+          className="inline-block mt-6 px-6 py-3 bg-green-600 text-white text-lg font-semibold rounded-full shadow-md hover:bg-green-700 transition duration-300"
         >
           WhatsApp Bildirim Gönder
         </a>
