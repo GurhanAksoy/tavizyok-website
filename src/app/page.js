@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
-import logo from '@/public/logo.png';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
       <main className="max-w-3xl mx-auto px-4 pt-16 pb-10 text-center">
         <div className="flex justify-center mb-6">
           <Image
-            src={logo}
+            src="/logo.png"
             alt="TAVİZ YOK Logo"
             width={200}
             height={200}
