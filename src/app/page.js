@@ -64,8 +64,8 @@ export default function Home() {
               <li>Videoyu maksimum 30 saniye olacak şekilde kaydedin.</li>
               <li>Videoda yer ve zaman bilgisi belirtin.</li>
               <li>
-                WhatsApp hattımıza gönderin:{' '}
-                <span className="text-white bg-green-500 px-2 py-1 rounded font-semibold">
+                WhatsApp hattımıza gönderin:
+                <span className="text-white bg-green-500 px-2 py-1 rounded font-semibold ml-2">
                   0 530 406 66 86
                 </span>
               </li>
@@ -76,33 +76,38 @@ export default function Home() {
                 target="_blank"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 448 512" fill="currentColor">
-                  <path d="M380.9 97.1C339-6.2 217.1-31.8 123.2 10.1C58.7 40.5 19.8 108.5 21.3 181.5c1.1 54.8 20.1 105.5 53.2 144.5L49.1 470.6c-3.5 13.5 9.2 25.2 22.5 20.5l123.6-45.2c35.2 12.6 73.8 15.4 111.3 6.5c99.2-24.2 163.8-121.7 145.2-221.3c-5.8-30.2-19.7-57.8-38.8-78.4z" />
-                </svg>
                 <span className="text-white font-semibold">WhatsApp Bildirim Gönder</span>
               </a>
             </div>
           </section>
 
           <section className="mb-12" id="kvkk">
-            <h2 className="text-2xl font-semibold mb-4">Kişisel Verilerin Korunması</h2>
+            <h2 className="text-2xl font-semibold mb-4">Kişisel Verilerin Korunması (KVKK) Aydınlatma Metni</h2>
             <p className="text-gray-700 leading-relaxed">
-              TAVİZ YOK, kullanıcıdan ad, soyad, T.C. kimlik numarası veya iletişim bilgisi gibi kişisel verileri talep etmez. Ancak gönderilen videolarda yer alan kişi ve içerikler, kamusal bildirim ve kamu yararı amacıyla işlenebilir. Gönderilen içerik, sosyal medya ve resmi kurumlarla paylaşılabilir. Video gönderen kullanıcı, bu paylaşım hakkını TAVİZ YOK platformuna vermiş sayılır.
+              TAVİZ YOK platformu olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu sıfatıyla, kullanıcılarımızın kişisel verilerinin gizliliğine ve güvenliğine önem veriyoruz.
+              TAVİZ YOK platformu, kullanıcılarından doğrudan ad, soyad, T.C. kimlik numarası veya iletişim bilgileri gibi kişisel verileri talep etmez. Ancak kullanıcılar tarafından gönüllü olarak gönderilen video içerikleri içerisinde yer alabilecek görsel, sesli ve çevresel veriler, kamu düzeninin sağlanması, hukuka aykırılıkların bildirimi ve kamu yararı amaçları doğrultusunda, KVKK m.5/2-d ve m.28/1-c kapsamında açık rıza aranmaksızın işlenebilir.
+              Gönderilen içerikler; hukuka aykırı durumların resmi kurumlara bildirilmesi, toplumun bilinçlendirilmesi amacıyla sosyal medya ve dijital platformlarda yayımlanması, kamu düzeni, kamu sağlığı ve çevre güvenliği konularında farkındalık oluşturulması amaçlarıyla işlenir.
+              Kullanıcı, TAVİZ YOK platformuna video göndererek; içeriğin gerektiğinde orijinal haliyle resmi makamlara iletilmesini ve gerektiğinde sosyal medya veya diğer açık dijital platformlarda yayımlanmasını kabul eder.
             </p>
           </section>
 
           <section className="mb-12" id="yasal">
             <h2 className="text-2xl font-semibold mb-4">Yasal Uyarı ve Sorumluluk Reddi</h2>
             <p className="text-gray-700 leading-relaxed">
-              TAVİZ YOK, yalnızca bir aracı platformdur. Gönderilen içeriklerin doğruluğu ve hukuki sorumluluğu gönderene aittir. TAVİZ YOK, iftira, özel hayatın ihlali, sahte veya manipülatif içeriklerden sorumlu tutulamaz. Platform, kamu yararına içerikleri ilgili kurumlara iletir ve sosyal medyada yayımlar. İçerik gönderen kişi, bu koşulları peşinen kabul eder.
+              TAVİZ YOK, yalnızca bir dijital iletişim ve bilgilendirme platformudur. Platform aracılığıyla iletilen içerikler, kullanıcıların kendi rızasıyla paylaştığı bilgilerdir. Gönderilen içeriklerin doğruluğu, güncelliği ve yasal uygunluğu tamamen kullanıcı sorumluluğundadır.
+              TAVİZ YOK, iftira, hakaret, özel hayatın gizliliğini ihlal eden, manipülatif veya kurgu içeriklerden sorumlu tutulamaz. İçerikler ön incelemeye tabi tutulabilir, ancak platform tüm içerikleri denetlemekle yükümlü değildir.
+              TAVİZ YOK yalnızca kamu yararını ilgilendiren içerikleri; ilgili kamu kurumlarına ve sosyal medya platformlarında kamuoyuna açık şekilde iletir.
+              Kullanıcı, içerik gönderimiyle birlikte bu koşulları önceden okuduğunu, anladığını ve kabul ettiğini taahhüt eder.
+              Gönderilen video ve içeriklerin tüm yayın, iletim, çoğaltma ve dağıtım hakkı TAVİZ YOK platformuna aittir. Kullanıcı bu içerikleri daha sonra farklı bir platformda paylaşmak, silmek veya geri çekmek hakkına tek başına sahip değildir. İçerikler, TAVİZ YOK logosu veya işaretleriyle yayımlanır.
             </p>
           </section>
 
           <footer className="bg-gray-100 border-t pt-6 text-sm text-gray-600 text-center mt-16">
-            <p>📞 WhatsApp: 0 530 406 66 86 | 📧 tavizyokplatformu@gmail.com</p>
+            <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
             <div className="space-x-4 mt-2">
               <a href="#kvkk" className="hover:underline">KVKK</a>
               <a href="#yasal" className="hover:underline">Yasal Uyarı</a>
+              <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" className="hover:underline">YouTube</a>
             </div>
             <p className="mt-2">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
           </footer>
