@@ -8,7 +8,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Logo */}
         <header className="flex flex-col items-center text-center mb-12">
-          <Image src="/logo.png" alt="Taviz Yok Logo" width={180} height={180} />
+          <Image src="/logo.png" alt="Taviz Yok Logo" width={200} height={200} />
           <p className="mt-2 text-lg text-gray-600 max-w-xl">
             Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu bildirmenin pratik ve güvenli yolu.
           </p>
@@ -18,16 +18,16 @@ export default function Home() {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-2">TAVİZ YOK Platformu Nedir?</h2>
           <p className="text-gray-700 leading-relaxed">
-            TAVİZ YOK, vatandaşların Türkiye sınırları içinde karşılaştığı hukuka aykırı olayları kısa videolarla bize iletebildiği tarafsız ve kamu yararına çalışan bir iletişim sistemidir.
+            TAVİZ YOK, vatandaşların Türkiye sınırları içinde karşılaştığı hukuka aykırı olayları kısa videolarla iletebildiği tarafsız ve kamu yararına çalışan bir iletişim sistemidir.
           </p>
         </section>
 
-        {/* Nasıl Bildirim Gönderilir */}
+        {/* Bildirim Nasıl Gönderilir */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Nasıl Bildirim Gönderilir?</h2>
+          <h2 className="text-2xl font-semibold mb-4">Bildirim Nasıl Gönderilir?</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Karşılaştığınız durumu maksimum 30 saniyelik bir videoya kaydedin.</li>
-            <li>Videonun içinde yer ve zaman bilgisi belirtin (sesli ya da yazılı olabilir).</li>
+            <li>Videonun içinde yer ve zaman bilgisi mutlaka belirtilmelidir! (sesli ya da yazılı olabilir).</li>
             <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
           </ul>
 
