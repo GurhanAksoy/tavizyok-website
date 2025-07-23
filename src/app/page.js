@@ -9,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white text-gray-900 font-sans">
       <Navbar />
       <div className="flex flex-col items-center justify-center text-center px-4 py-16">
-        <Image src="/logo.png" alt="TAVİZ YOK Logo" width={200} height={200} className="mb-6" />
+        <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-2xl">
           Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin, bize gönderin. Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
         </h1>
