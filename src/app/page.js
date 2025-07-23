@@ -85,9 +85,9 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">Kişisel Verilerin Korunması (KVKK) Aydınlatma Metni</h2>
             <p className="text-gray-700 leading-relaxed">
               TAVİZ YOK platformu olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu sıfatıyla, kullanıcılarımızın kişisel verilerinin gizliliğine ve güvenliğine önem veriyoruz.
-              TAVİZ YOK platformu, kullanıcılarından doğrudan ad, soyad, T.C. kimlik numarası veya iletişim bilgileri gibi kişisel verileri talep etmez. Ancak kullanıcılar tarafından gönüllü olarak gönderilen video içerikleri içerisinde yer alabilecek görsel, sesli ve çevresel veriler, kamu düzeninin sağlanması, hukuka aykırılıkların bildirimi ve kamu yararı amaçları doğrultusunda, KVKK m.5/2-d ve m.28/1-c kapsamında açık rıza aranmaksızın işlenebilir.
+              TAVİZ YOK platformu, kullanıcılarından doğrudan ad, soyad, T.C. kimlik numarası veya iletişim bilgileri gibi kişisel verileri talep etmez. Ancak kullanıcılar tarafından gönüllü olarak gönderilen video içerikleri içerisinde yer alabilecek görsel, sesli ve çevresel veriler, kamu düzeninin sağlanması, hukuka aykırılıkların bildirimi ve kamu yararı amaçları doğrultusunda, KVKK m.5/2-d ve m.28/1-c kapsamında açık rıza aranmaksızın işlenebilecektir.
               Gönderilen içerikler; hukuka aykırı durumların resmi kurumlara bildirilmesi, toplumun bilinçlendirilmesi amacıyla sosyal medya ve dijital platformlarda yayımlanması, kamu düzeni, kamu sağlığı ve çevre güvenliği konularında farkındalık oluşturulması amaçlarıyla işlenir.
-              Kullanıcı, TAVİZ YOK platformuna video göndererek; içeriğin gerektiğinde orijinal haliyle resmi makamlara iletilmesini ve gerektiğinde sosyal medya veya diğer açık dijital platformlarda yayımlanmasını kabul eder.
+              Kullanıcı, TAVİZ YOK platformuna video göndererek; içeriğin gerektiğinde orijinal haliyle resmi makamlara iletilmesini ve gerektiğinde sosyal medya veya diğer açık dijital platformlarda yayımlanmasını kabul etmiş sayılır.
             </p>
           </section>
 
