@@ -1,63 +1,48 @@
 'use client';
-
 import Image from 'next/image';
-import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <div className="bg-[#f7f7f7] min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white text-gray-800">
       <Navbar />
-      <main className="max-w-3xl mx-auto px-4 pt-16 pb-10 text-center">
-        <div className="flex justify-center mb-6">
-          <Image
-            src="/logo.png"
-            alt="TAVİZ YOK Logo"
-            width={200}
-            height={200}
-            priority
-          />
-        </div>
-        <h1 className="text-xl font-semibold text-gray-800 mb-4">
-          Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgele, bize gönder. Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
+      <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
+        <Image src="/logo.png" alt="TAVİZ YOK Logo" width={180} height={180} />
+        <h1 className="text-2xl md:text-3xl font-semibold mt-8 max-w-2xl leading-relaxed">
+          Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgele, bize gönder. 
+          Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
         </h1>
 
-        <div className="my-8 border-t border-gray-300" />
-
-        <section className="text-left">
-          <h2 className="text-lg font-semibold mb-2">Nasıl Bildirim Gönderilir?</h2>
-          <ul className="list-disc ml-6 text-gray-700 mb-4">
+        <div className="mt-12 bg-white shadow-lg rounded-xl p-6 w-full max-w-md text-left">
+          <h2 className="text-xl font-bold mb-4 text-center">Nasıl Bildirim Gönderilir?</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>Videoyu maksimum 30 saniye olacak şekilde kaydedin.</li>
             <li>Videoda yer ve zaman bilgisi belirtin.</li>
-            <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
+            <li>WhatsApp hattımıza gönderin: <span className="font-bold">0 530 406 66 86</span></li>
           </ul>
-
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-6">
             <a
               href="https://wa.me/905304066686"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow transition-colors"
+              className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-full shadow-md transition"
             >
-              WhatsApp Bildirim Gönder
+              📩 WhatsApp Bildirim Gönder
             </a>
           </div>
-        </section>
+        </div>
 
-        <div className="my-10 border-t border-gray-300" />
-
-        <footer className="text-sm text-gray-600 text-center">
-          <p className="mb-1">
-            WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com
-          </p>
-          <div className="flex justify-center gap-4 mb-2">
-            <Link href="/kvkk" className="text-red-600 hover:underline">KVKK</Link>
-            <Link href="/yasal-uyari" className="text-red-600 hover:underline">Yasal Uyarı</Link>
-            <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" className="text-red-600 hover:underline">YouTube</a>
+        <footer className="mt-16 text-sm text-gray-500">
+          <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
+          <div className="mt-2 flex gap-4 justify-center text-red-600 font-semibold">
+            <Link href="/kvkk">KVKK</Link>
+            <Link href="/yasal-uyari">Yasal Uyarı</Link>
+            <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
-          <p className="text-gray-500">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
+          <p className="mt-2">&copy; 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }
