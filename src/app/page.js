@@ -8,14 +8,14 @@ export default function Home() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Logo + Başlık */}
         <header className="flex flex-col items-center text-center mb-12">
-          <Image src="/logo.png" alt="Taviz Yok Logo" width={100} height={100} />
+          <Image src="/logo.png" alt="Taviz Yok Logo" width={150} height={150} />
           <h1 className="text-4xl font-bold mt-4 tracking-tight">TAVİZ YOK</h1>
           <p className="mt-2 text-lg text-gray-600 max-w-xl">
             Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu bildirmenin pratik ve güvenli yolu.
           </p>
         </header>
 
-        {/* Platform Nedir */}
+        {/* TAVİZ YOK Platformu Nedir */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-2">Platform Nedir?</h2>
           <p className="text-gray-700 leading-relaxed">
@@ -31,13 +31,20 @@ export default function Home() {
             <li>Videonun içinde yer ve zaman bilgisi belirtin (sesli ya da yazılı olabilir).</li>
             <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
           </ul>
-          <a
-            href="https://wa.me/905304066686"
-            target="_blank"
-            className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-md shadow hover:bg-green-700 transition"
-          >
-            📲 WhatsApp Bildirim Gönder
-          </a>
+
+          {/* Yeni Buton Tasarımı */}
+          <div className="mt-6">
+            <a
+              href="https://wa.me/905304066686"
+              target="_blank"
+              className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 448 512" fill="currentColor">
+                <path d="M380.9 97.1C339-6.2 217.1-31.8 123.2 10.1 58.7 40.5 19.8 108.5 21.3 181.5c1.1 54.8 20.1 105.5 53.2 144.5L49.1 470.6c-3.5 13.5 9.2 25.2 22.5 20.5l123.6-45.2c35.2 12.6 73.8 15.4 111.3 6.5 99.2-24.2 163.8-121.7 145.2-221.3-5.8-30.2-19.7-57.8-38.8-78.4zM224 439.7c-30.9.1-61.2-7.5-88.4-22L98.2 429l18.1-65.5c-20.5-27.5-32.5-61.4-33.1-96.3-.9-83.3 66.6-151.4 149.9-152.3s151.4 66.6 152.3 149.9c.9 83.3-66.6 151.4-149.9 152.3z" />
+              </svg>
+              WhatsApp Bildirim Gönder
+            </a>
+          </div>
         </section>
 
         {/* Kurallar ve Şartlar */}
