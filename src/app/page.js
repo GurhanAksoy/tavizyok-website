@@ -1,60 +1,91 @@
+'use client';
 
-&#39;use client&#39;;
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from &#39;next/image&#39;;
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <Image src="/logo.png" alt="Logo" width={40} height={40} />
+          <span className="text-xl font-bold text-gray-800">TAVİZ YOK</span>
+        </div>
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-800 focus:outline-none"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2"
+              viewBox="0 0 24 24">
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+        <div className="hidden md:flex space-x-6">
+          <Link href="/" className="text-gray-700 hover:text-red-600 font-medium transition">Anasayfa</Link>
+          <Link href="/kvkk" className="text-gray-700 hover:text-red-600 font-medium transition">KVKK</Link>
+          <Link href="/yasal-uyari" className="text-gray-700 hover:text-red-600 font-medium transition">Yasal Uyarı</Link>
+        </div>
+      </div>
+    </nav>
+  );
+}
 
 export default function Home() {
   return (
-    <main className=&quot;min-h-screen bg-white text-gray-900&quot;>
-      <div className=&quot;max-w-3xl mx-auto p-6&quot;>
-        <header className=&quot;flex items-center space-x-4 mb-8&quot;>
-          <Image src=&quot;/logo.png&quot; alt=&quot;Taviz Yok Logo&quot; width={60} height={60} />
-          <h1 className=&quot;text-3xl font-extrabold&quot;>TAVİZ YOK</h1>
-        </header>
+    <>
+      <Navbar />
+      <main className="pt-24 bg-gradient-to-b from-gray-50 to-white text-gray-900 min-h-screen">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <header className="flex flex-col items-center text-center mb-12 border-b pb-8">
+            <Image src="/logo.png" alt="Taviz Yok Logo" width={200} height={200} className="shadow-md rounded-full" />
+            <p className="mt-6 text-xl text-gray-700 max-w-2xl leading-relaxed">
+              Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgele, bize gönder. Biz de ilgili kuruma iletelim ve kamuyla paylaşalım.
+            </p>
+          </header>
 
-        <section className=&quot;mb-10&quot;>
-          <h2 className=&quot;text-xl font-semibold mb-2&quot;>
-            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu bildirmenin pratik ve güvenli yolu.
-          </h2>
-          <p className=&quot;text-gray-700&quot;>
-            Türkiye Cumhuriyeti vatandaşlarının yanındayız. Devletin ilgili kurumlarına destek sunuyoruz.
-          </p>
-        </section>
+          <section className="mb-12">
+            <h2 className="text-2xl font-semibold mb-4">Nasıl Bildirim Gönderilir?</h2>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>Videoyu maksimum 30 saniye olacak şekilde kaydedin.</li>
+              <li>Videoda yer ve zaman bilgisi belirtin.</li>
+              <li>
+                WhatsApp hattımıza gönderin:
+                <span className="text-white bg-green-500 px-2 py-1 rounded font-semibold ml-2">
+                  0 530 406 66 86
+                </span>
+              </li>
+            </ul>
+            <div className="mt-6">
+              <a
+                href="https://wa.me/905304066686"
+                target="_blank"
+                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105"
+              >
+                <span className="text-white font-semibold">WhatsApp Bildirim Gönder</span>
+              </a>
+            </div>
+          </section>
 
-        <section className=&quot;mb-10&quot;>
-          <h3 className=&quot;text-lg font-bold mb-2&quot;>Platform Nedir?</h3>
-          <p className=&quot;text-gray-700&quot;>
-            TAVİZ YOK, vatandaşların Türkiye sınırları içinde karşılaştığı hukuka aykırı olayları, kısa videolarla bize iletebildiği tarafsız ve kamu yararına çalışan bir iletişim sistemidir.
-          </p>
-        </section>
-
-        <section className=&quot;mb-10&quot;>
-          <h3 className=&quot;text-lg font-bold mb-2&quot;>Nasıl Bildirim Gönderilir?</h3>
-          <ul className=&quot;list-disc list-inside text-gray-700 space-y-1&quot;>
-            <li>Karşılaştığınız durumu maksimum 30 saniyelik bir videoya kaydedin.</li>
-            <li>Videonun içinde yer ve zaman bilgisi belirtin (sesli ya da yazılı olabilir).</li>
-            <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
-          </ul>
-          <a href=&quot;https://wa.me/905304066686&quot; target=&quot;_blank&quot; className=&quot;inline-block mt-4 bg-green-600 text-white px-5 py-2 rounded hover:bg-green-700 transition&quot;>
-            WhatsApp Bildirim Gönder
-          </a>
-        </section>
-
-        <section className=&quot;mb-10&quot;>
-          <h3 className=&quot;text-lg font-bold mb-2&quot;>Kurallar ve Şartlar</h3>
-          <ul className=&quot;list-disc list-inside text-gray-700 space-y-1&quot;>
-            <li>Gönderilen videoların içeriği gerçeği yansıtmalıdır.</li>
-            <li>Yer ve zaman bilgisi olmayan videolar geçerli sayılmaz.</li>
-            <li>Gönderim yaparak <a href=&quot;https://tavizyok.com&quot; className=&quot;underline text-red-600&quot;>www.tavizyok.com</a>&#39;daki şartları kabul etmiş sayılırsınız.</li>
-            <li>Videolar, gerekirse buzlanarak sosyal medyada paylaşılır. Ancak resmi kurumlara orijinal haliyle iletilir.</li>
-          </ul>
-        </section>
-
-        <footer className=&quot;text-sm text-gray-600 border-t pt-4&quot;>
-          <p>📞 WhatsApp: 0 530 406 66 86 | 📧 tavizyokplatformu@gmail.com</p>
-          <p>© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
-        </footer>
-      </div>
-    </main>
+          <footer className="bg-gray-100 border-t pt-6 text-sm text-gray-600 text-center mt-16">
+            <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
+            <div className="space-x-4 mt-2">
+              <Link href="/kvkk" className="hover:underline">KVKK</Link>
+              <Link href="/yasal-uyari" className="hover:underline">Yasal Uyarı</Link>
+              <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" className="hover:underline">YouTube</a>
+            </div>
+            <p className="mt-2">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
+          </footer>
+        </div>
+      </main>
+    </>
   );
 }
