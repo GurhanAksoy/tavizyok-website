@@ -15,7 +15,7 @@ export default function Home() {
           </p>
         </header>
 
-        {/* TAVİZ YOK Platformu Nedir */}
+        {/* Platform Nedir */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-2">Platform Nedir?</h2>
           <p className="text-gray-700 leading-relaxed">
