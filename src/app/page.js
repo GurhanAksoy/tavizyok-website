@@ -13,7 +13,8 @@ export default function Home() {
         className="relative w-full h-[90vh] bg-cover bg-center"
         style={{ backgroundImage: "url('/mutlu-toplum.png')" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        {/* Daha hafif karartma */}
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
           <Image
             src="/logo.png"
@@ -22,10 +23,10 @@ export default function Home() {
             height={160}
             className="mb-6"
           />
-          <h1 className="text-white text-3xl md:text-4xl font-bold max-w-2xl">
+          <h1 className="text-white text-3xl md:text-4xl font-bold max-w-2xl drop-shadow">
             Haksızlığa, hukuksuzluğa, vicdansızlığa sessiz kalma.
           </h1>
-          <p className="text-gray-200 mt-4 max-w-md">
+          <p className="text-gray-100 mt-4 max-w-md drop-shadow">
             Bu toplum için, çocuklarımız için, insanlık için... Sessiz kalmak, onaylamaktır.
           </p>
           <a
