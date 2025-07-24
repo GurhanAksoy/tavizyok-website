@@ -1,71 +1,64 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// src/app/layout.js
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import './globals.css';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import Script from 'next/script';
 
 export const metadata = {
-  title: "TAVİZ YOK | Dijital Vatandaş Bildirim Platformu",
+  title: 'TAVİZ YOK',
   description:
-    "TAVİZ YOK, hukuka, insan haklarına ve kamu vicdanına aykırı olayları belgeleyen vatandaş platformudur. Gönderilen içerikler ilgili kurumlara iletilir ve kamuoyuyla paylaşılır.",
+    'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları belgeleyin. TAVİZ YOK platformuna gönderin, biz de ilgili kurumlara iletip kamuoyunu bilgilendirelim.',
   keywords: [
-    "taviz yok",
-    "ihbar hattı",
-    "video ihbar",
-    "kamu ihbar hattı",
-    "kanunsuzluk bildirimi",
-    "trafik ihbarı",
-    "yolsuzluk videosu gönder",
-    "vatandaş bildirimi",
-    "whatsapp ihbar",
-    "görüntülü şikayet",
+    'Taviz Yok',
+    'ihbar platformu',
+    'kamu vicdanı',
+    'hukuk',
+    'insan hakları',
+    'video ihbar',
+    'Türkiye',
+    'asayiş',
+    'trafik',
+    'şikayet hattı',
+    'kamu bildirimi',
   ],
-  robots: "index, follow",
+  metadataBase: new URL('https://tavizyok.com'),
   openGraph: {
-    title: "TAVİZ YOK | Hukuksuzluğa Karşı Vatandaş Platformu",
+    title: 'TAVİZ YOK',
     description:
-      "Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin. Bize gönderin, biz ilgili kurumlara iletelim.",
-    url: "https://tavizyok.com",
-    siteName: "TAVİZ YOK",
-    images: [
-      {
-        url: "https://tavizyok.com/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "TAVİZ YOK",
-      },
-    ],
-    locale: "tr_TR",
-    type: "website",
+      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları belgeleyin. TAVİZ YOK platformuna gönderin, biz de ilgili kurumlara iletip kamuoyunu bilgilendirelim.',
+    url: 'https://tavizyok.com',
+    siteName: 'TAVİZ YOK',
+    locale: 'tr_TR',
+    type: 'website',
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "TAVİZ YOK",
-    description:
-      "Hukuksuzluğa, haksızlığa karşı vatandaşların sesi. Gönder, biz iletelim.",
-    creator: "@Taviz_Yok",
-    images: ["https://tavizyok.com/logo.png"],
-  },
-  metadataBase: new URL("https://tavizyok.com"),
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://tavizyok.com/" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q3QNNYRCHJ"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q3QNNYRCHJ');
+            `,
+          }}
+        />
         {children}
       </body>
     </html>
