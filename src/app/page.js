@@ -36,12 +36,30 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Bizi Takip Edin</h2>
         <p className="mb-6 text-gray-600">Gelişmeleri kaçırmamak için sosyal medya kanallarımıza katılın.</p>
         <div className="flex justify-center gap-6 text-3xl">
-          <a href="https://www.instagram.com/tavizyok" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 transition-colors">
+          <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 transition-colors">
             <FaInstagram />
           </a>
           <a href="https://www.youtube.com/@tavizyok" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-800 transition-colors">
             <FaYoutube />
           </a>
+        </div>
+      </section>
+
+      {/* Video Promo Section */}
+      <section className="bg-gray-100 py-12 text-center px-4">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">TAVİZ YOK Nedir?</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+          TAVİZ YOK; hukuka, kamu vicdanına ve insan haklarına aykırılıklar karşısında sessiz kalmayanların platformudur. Tanıtım videomuzu izleyin ve siz de katkı sağlayın.
+        </p>
+        <div className="aspect-w-16 aspect-h-9 max-w-3xl mx-auto">
+          <iframe
+            className="w-full h-full rounded-xl shadow-lg"
+            src="https://www.youtube.com/embed/your_video_id"
+            title="TAVİZ YOK Tanıtım Videosu"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </section>
 
