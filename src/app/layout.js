@@ -6,25 +6,25 @@ import Script from 'next/script';
 export const metadata = {
   title: 'TAVİZ YOK',
   description:
-    'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları belgeleyin. TAVİZ YOK platformuna gönderin, biz de ilgili kurumlara iletip kamuoyunu bilgilendirelim.',
+    'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
   keywords: [
     'Taviz Yok',
-    'ihbar platformu',
-    'kamu vicdanı',
-    'hukuk',
-    'insan hakları',
+    'ihbar',
     'video ihbar',
+    'kamu vicdanı',
+    'insan hakları',
+    'hukuka aykırı olaylar',
+    'şikayet',
+    'şikayet platformu',
     'Türkiye',
-    'asayiş',
-    'trafik',
-    'şikayet hattı',
-    'kamu bildirimi',
+    'trafik ihlali',
+    'kamu yararı',
   ],
   metadataBase: new URL('https://tavizyok.com'),
   openGraph: {
     title: 'TAVİZ YOK',
     description:
-      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları belgeleyin. TAVİZ YOK platformuna gönderin, biz de ilgili kurumlara iletip kamuoyunu bilgilendirelim.',
+      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
     url: 'https://tavizyok.com',
     siteName: 'TAVİZ YOK',
     locale: 'tr_TR',
@@ -37,8 +37,6 @@ export default function RootLayout({ children }) {
     <html lang="tr">
       <head>
         <link rel="canonical" href="https://tavizyok.com/" />
-      </head>
-      <body className="antialiased font-sans">
         {/* Google Analytics */}
         <Script
           async
@@ -57,6 +55,8 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+      </head>
+      <body className="antialiased font-sans bg-white text-black">
         {children}
       </body>
     </html>
