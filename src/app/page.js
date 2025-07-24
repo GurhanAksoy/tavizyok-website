@@ -10,26 +10,32 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center text-center px-4 py-16">
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
-        <div className="max-w-2xl mx-auto space-y-4">
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
-            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin, bize gönderin.
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
-            Biz de ilgili kuruma iletelim.
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
-            Kamuoyuyla paylaşalım.
-          </p>
-        </div>
+        <div className="max-w-2xl mx-auto space-y-2 leading-relaxed">
+  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+    Hukuksuzluğa, haksızlığa, insan haklarına ve
+  </p>
+  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+    kamu vicdanına aykırı her durumu
+  </p>
+  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+    videoyla belgeleyin, bize gönderin.
+  </p>
+  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+    Biz de ilgili kuruma iletelim.
+  </p>
+  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+    Kamuoyuyla paylaşalım.
+  </p>
+</div>
 
         <a
-          href="https://wa.me/905304066686"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-10 inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-full shadow-lg hover:bg-[#1ebe5d] transition"
-        >
-          📲 WhatsApp Bildirim Gönder
-        </a>
+  href="https://wa.me/905304066686"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-full shadow-lg hover:bg-[#1ebe5d] transition"
+>
+  📲 <span className="text-white">WhatsApp Bildirim Gönder</span>
+</a>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-12 py-12">
