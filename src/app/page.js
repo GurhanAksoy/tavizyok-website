@@ -70,16 +70,5 @@ export default function Home() {
 }
 
 
-<footer className="bg-gray-900 text-gray-300 text-sm text-center py-6">
-        <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
-        <div className="mt-2 space-x-4">
-          <Link href="/kvkk" className="hover:underline text-red-400">KVKK</Link>
-          <Link href="/yasal-uyari" className="hover:underline text-red-400">Yasal Uyarı</Link>
-          <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">YouTube</a>
-        </div>
-        <p className="mt-2 text-xs">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
-      </footer>
-    </main>
-
 
 
