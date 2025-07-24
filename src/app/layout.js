@@ -1,8 +1,6 @@
 // src/app/layout.js
 
 import './globals.css';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
 import Script from 'next/script';
 
 export const metadata = {
@@ -40,7 +38,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="canonical" href="https://tavizyok.com/" />
       </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className="antialiased font-sans">
         {/* Google Analytics */}
         <Script
           async
