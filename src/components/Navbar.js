@@ -34,11 +34,13 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menu Items */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-800">
           <Link href="/" className="hover:text-red-600 transition">Anasayfa</Link>
           <Link href="/kvkk" className="hover:text-red-600 transition">KVKK</Link>
           <Link href="/yasal-uyari" className="hover:text-red-600 transition">Yasal Uyarı</Link>
+          
+          {/* YouTube */}
           <a
             href="https://www.youtube.com/@Taviz_Yok"
             target="_blank"
@@ -47,6 +49,22 @@ export default function Navbar() {
           >
             <FaYoutube className="text-xl" />
             <span className="hidden sm:inline font-medium">YouTube</span>
+          </a>
+
+          {/* Instagram */}
+          <a
+            href="https://www.instagram.com/tavizyokplatformu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center hover:text-pink-600 transition"
+          >
+            <Image
+              src="/instagram.svg"
+              alt="Instagram"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
           </a>
         </div>
       </div>
@@ -57,6 +75,7 @@ export default function Navbar() {
           <Link href="/" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Anasayfa</Link>
           <Link href="/kvkk" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>KVKK</Link>
           <Link href="/yasal-uyari" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Yasal Uyarı</Link>
+
           <a
             href="https://www.youtube.com/@Taviz_Yok"
             target="_blank"
@@ -64,6 +83,16 @@ export default function Navbar() {
             className="block text-red-600 hover:text-red-800"
           >
             <FaYoutube className="inline mr-1" /> YouTube
+          </a>
+
+          <a
+            href="https://www.instagram.com/tavizyokplatformu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-pink-600 hover:text-pink-800"
+          >
+            <img src="/instagram.svg" alt="Instagram" width={20} height={20} className="inline mr-2" />
+            Instagram
           </a>
         </div>
       )}
