@@ -34,12 +34,12 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop Menu */}
+        {/* Menu Items */}
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-800">
           <Link href="/" className="hover:text-red-600 transition">Anasayfa</Link>
           <Link href="/kvkk" className="hover:text-red-600 transition">KVKK</Link>
           <Link href="/yasal-uyari" className="hover:text-red-600 transition">Yasal Uyarı</Link>
-          
+
           {/* YouTube */}
           <a
             href="https://www.youtube.com/@Taviz_Yok"
@@ -56,15 +56,16 @@ export default function Navbar() {
             href="https://www.instagram.com/tavizyokplatformu"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center hover:text-pink-600 transition"
+            className="flex items-center hover:opacity-80 transition space-x-1"
           >
             <Image
-              src="/instagram.svg"
+              src="/IG.png"
               alt="Instagram"
-              width={24}
-              height={24}
+              width={20}
+              height={20}
               className="object-contain"
             />
+            <span className="hidden sm:inline font-medium text-[#E1306C]">Instagram</span>
           </a>
         </div>
       </div>
@@ -75,7 +76,7 @@ export default function Navbar() {
           <Link href="/" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Anasayfa</Link>
           <Link href="/kvkk" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>KVKK</Link>
           <Link href="/yasal-uyari" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Yasal Uyarı</Link>
-
+          
           <a
             href="https://www.youtube.com/@Taviz_Yok"
             target="_blank"
@@ -89,9 +90,15 @@ export default function Navbar() {
             href="https://www.instagram.com/tavizyokplatformu"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-pink-600 hover:text-pink-800"
+            className="block hover:text-[#E1306C]"
           >
-            <img src="/instagram.svg" alt="Instagram" width={20} height={20} className="inline mr-2" />
+            <Image
+              src="/IG.png"
+              alt="Instagram"
+              width={20}
+              height={20}
+              className="inline-block mr-1 object-contain"
+            />
             Instagram
           </a>
         </div>
