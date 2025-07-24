@@ -8,27 +8,44 @@ export const metadata = {
   description:
     'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
   keywords: [
-    'Taviz Yok',
-    'ihbar',
+    'TAVİZ YOK',
     'video ihbar',
+    'hukuksuzluk bildirimi',
     'kamu vicdanı',
     'insan hakları',
     'hukuka aykırı olaylar',
-    'şikayet',
-    'şikayet platformu',
-    'Türkiye',
+    'ihbar platformu',
+    'Türkiye ihbar hattı',
     'trafik ihlali',
+    'video gönder',
+    'şikayet',
     'kamu yararı',
   ],
   metadataBase: new URL('https://tavizyok.com'),
   openGraph: {
     title: 'TAVİZ YOK',
     description:
-      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
+      'Vatandaşların kamu yararına hukuka aykırı olayları videoyla bildirip paylaşabileceği dijital platform.',
     url: 'https://tavizyok.com',
     siteName: 'TAVİZ YOK',
     locale: 'tr_TR',
     type: 'website',
+    images: [
+      {
+        url: 'https://tavizyok.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'TAVİZ YOK',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@TavizYok',
+    title: 'TAVİZ YOK',
+    description:
+      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de kamuoyunu ve yetkilileri bilgilendirelim.',
+    images: ['https://tavizyok.com/logo.png'],
   },
 };
 
@@ -37,6 +54,10 @@ export default function RootLayout({ children }) {
     <html lang="tr">
       <head>
         <link rel="canonical" href="https://tavizyok.com/" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="TAVİZ YOK Platformu" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         {/* Google Analytics */}
         <Script
           async
