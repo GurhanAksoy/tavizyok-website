@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
-	<link rel="icon" href="/favicon.ico" /> 
+	<link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
         <link rel="canonical" href="https://tavizyok.com/" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="TAVİZ YOK Platformu" />
