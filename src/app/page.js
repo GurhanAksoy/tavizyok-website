@@ -11,12 +11,9 @@ export default function Home() {
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal mb-4">
-            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin,
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
-            bize gönderin. Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
-          </h2>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
+            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin, bize gönderin. Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
+          </p>
         </div>
 
         <a
