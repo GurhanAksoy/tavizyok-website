@@ -5,14 +5,20 @@ import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-200 text-gray-900 font-sans">
+    <main className="min-h-screen bg-gray-300 text-gray-900 font-sans">
       <Navbar />
       <div className="flex flex-col items-center justify-center text-center px-4 py-16">
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto space-y-4">
           <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
-            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin, bize gönderin. Biz de ilgili kuruma iletelim ve kamuoyuyla paylaşalım.
+            Hukuksuzluğa, haksızlığa, insan haklarına ve kamu vicdanına aykırı her durumu videoyla belgeleyin, bize gönderin.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
+            Biz de ilgili kuruma iletelim.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800 leading-normal">
+            Kamuoyuyla paylaşalım.
           </p>
         </div>
 
@@ -55,6 +61,7 @@ export default function Home() {
           <Link href="/kvkk" className="hover:underline text-red-400">KVKK</Link>
           <Link href="/yasal-uyari" className="hover:underline text-red-400">Yasal Uyarı</Link>
           <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">YouTube</a>
+          <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">Instagram</a>
         </div>
         <p className="mt-2 text-xs">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
       </footer>
