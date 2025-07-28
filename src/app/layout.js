@@ -1,7 +1,5 @@
 // src/app/layout.js
 
-'use client';
-
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
@@ -85,7 +83,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="antialiased font-sans bg-white text-black">
+      <body className={`${inter.className} antialiased font-sans bg-white text-black`}>
         <Navbar />
         {children}
         <footer className="bg-gray-900 text-gray-300 text-sm text-center py-6">
