@@ -4,65 +4,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #f8f9fa;       /* Açık gri zemin */
-  --foreground: #212121;       /* Başlık yazısı rengi */
-  --text-soft: #424242;        /* Normal metin rengi */
-  --accent: #e53935;           /* Ana kırmızı (butonlar) */
-  --accent-hover: #c62828;     /* Buton hover rengi */
-  --success: #43a047;          /* WhatsApp butonu, CTA */
-  --success-hover: #388e3c;    /* WhatsApp hover */
-  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+@layer base {
+  :root {
+    --background: #f8f9fa;       /* Açık gri zemin */
+    --foreground: #212121;       /* Başlık yazısı rengi */
+    --text-soft: #424242;        /* Normal metin rengi */
+    --accent: #e53935;           /* Ana kırmızı (butonlar) */
+    --accent-hover: #c62828;     /* Buton hover rengi */
+    --success: #43a047;          /* WhatsApp butonu, CTA */
+    --success-hover: #388e3c;    /* WhatsApp hover */
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
 
-body {
-  background-color: var(--background);
-  color: var(--text-soft);
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+  body {
+    background-color: var(--background);
+    color: var(--text-soft);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
 
-h1, h2, h3 {
-  color: var(--foreground);
-  font-weight: bold;
-}
+  h1, h2, h3 {
+    color: var(--foreground);
+    font-weight: bold;
+  }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
+  a:hover {
+    text-decoration: underline;
+  }
 
-button {
-  background-color: var(--accent);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
-  cursor: pointer;
-}
+  button {
+    background-color: var(--accent);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
 
-button:hover {
-  background-color: var(--accent-hover);
-}
+  button:hover {
+    background-color: var(--accent-hover);
+  }
 
-/* Örnek WhatsApp CTA butonu özel stili */
-.button-success {
-  background-color: var(--success);
-  color: white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
-  cursor: pointer;
-}
+  .button-success {
+    background-color: var(--success);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
 
-.button-success:hover {
-  background-color: var(--success-hover);
+  .button-success:hover {
+    background-color: var(--success-hover);
+  }
 }

@@ -7,7 +7,6 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Scroll olunca gölge verme
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +18,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`transition-all duration-300 ${
         scrolled ? 'shadow-md' : ''
       } bg-background/90 backdrop-blur-md`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
+      <div className="flex justify-between items-center py-3">
         <Link href="/" className="text-2xl font-bold text-accent">
           TAVİZ YOK
         </Link>
