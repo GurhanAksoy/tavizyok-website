@@ -2,11 +2,6 @@
 
 import { useState } from "react";
 
-export const metadata = {
-  title: "Sıkça Sorulan Sorular | TAVİZ YOK",
-  description: "TAVİZ YOK hakkında sıkça sorulan sorular ve cevapları bu sayfada.",
-};
-
 const sorular = [
   {
     soru: "Gönderdiğim video ne zaman yayınlanır?",
