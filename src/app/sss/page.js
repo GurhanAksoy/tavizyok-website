@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Navbar from '@/components/Navbar';
 
 const sorular = [
   {
@@ -33,22 +34,25 @@ export default function SSS() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-4xl font-bold text-center mb-8">Sıkça Sorulan Sorular</h1>
-      <div className="space-y-5">
-        {sorular.map((item, index) => (
-          <div key={index} className="border border-gray-200 rounded-xl shadow-sm p-4">
-            <button
-              onClick={() => toggle(index)}
-              className="w-full text-left text-lg font-medium focus:outline-none"
-            >
-              {item.soru}
-            </button>
-            {acikIndex === index && (
-              <p className="mt-3 text-gray-700">{item.cevap}</p>
-            )}
-          </div>
-        ))}
+    <main className="min-h-screen bg-gray-300 text-gray-900 font-sans">
+      <Navbar />
+      <div className="max-w-3xl mx-auto px-4 py-24">
+        <h1 className="text-4xl font-bold text-center mb-8">Sıkça Sorulan Sorular</h1>
+        <div className="space-y-5">
+          {sorular.map((item, index) => (
+            <div key={index} className="border border-gray-200 rounded-xl shadow-sm p-4 bg-white">
+              <button
+                onClick={() => toggle(index)}
+                className="w-full text-left text-lg font-medium focus:outline-none"
+              >
+                {item.soru}
+              </button>
+              {acikIndex === index && (
+                <p className="mt-3 text-gray-700">{item.cevap}</p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

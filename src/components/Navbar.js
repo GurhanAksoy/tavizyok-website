@@ -37,9 +37,11 @@ export default function Navbar() {
         {/* Menu Items - Desktop */}
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-800">
           <Link href="/" className="hover:text-red-600 transition">Anasayfa</Link>
-          <Link href="/sss" className="hover:text-red-600 transition">SSS</Link> {/* 🔴 Yeni eklendi */}
           <Link href="/kvkk" className="hover:text-red-600 transition">KVKK</Link>
           <Link href="/yasal-uyari" className="hover:text-red-600 transition">Yasal Uyarı</Link>
+
+          {/* SSS linki en sonda */}
+          <Link href="/sss" className="hover:text-red-600 transition">SSS</Link>
 
           {/* YouTube */}
           <a
@@ -75,10 +77,10 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white/90 px-6 py-4 space-y-3 text-gray-800 shadow-md">
           <Link href="/" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Anasayfa</Link>
-          <Link href="/sss" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>SSS</Link> {/* 🔴 Yeni eklendi */}
           <Link href="/kvkk" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>KVKK</Link>
           <Link href="/yasal-uyari" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>Yasal Uyarı</Link>
-          
+          <Link href="/sss" className="block hover:text-red-600" onClick={() => setMenuOpen(false)}>SSS</Link>
+
           <a
             href="https://www.youtube.com/@Taviz_Yok"
             target="_blank"
