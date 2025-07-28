@@ -5,17 +5,27 @@ import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bej text-gray-900 font-sans">
+    <main className="min-h-screen bg-gray-300 text-gray-900 font-sans">
       <Navbar />
       <div className="flex flex-col items-center justify-center text-center px-4 py-16">
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
-        <div className="text-center max-w-xl mx-auto space-y-2 leading-loose">
-          <p className="text-xl md:text-2xl font-medium text-gray-800">Hukuka, insan haklarına ve kamu vicdanına aykırı;</p>
-          <p className="text-xl md:text-2xl font-medium text-gray-800">haksız veya hukuksuz her durumu</p>
-          <p className="text-xl md:text-2xl font-medium text-gray-800">videoyla belgeleyin, bize gönderin.</p>
-          <p className="text-xl md:text-2xl font-medium text-gray-800">İlgili kuruma iletelim, kamuoyunu</p>
-          <p className="text-xl md:text-2xl font-medium text-gray-800">bilgilendirelim.</p>
+        <div className="max-w-2xl mx-auto space-y-2 leading-relaxed">
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Hukuksuzluğa, haksızlığa, insan haklarına ve
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            kamu vicdanına aykırı her durumu
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            videoyla belgeleyin, bize gönderin.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Biz de ilgili kuruma iletelim.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Kamuoyuyla paylaşalım.
+          </p>
         </div>
 
         <a
@@ -28,58 +38,76 @@ export default function Home() {
         </a>
       </div>
 
-      {/* Merak Ettikleriniz Bölümü */}
+      {/* ✅ Merak Ettikleriniz Bölümü */}
       <div className="px-6 md:px-12 py-12">
-        <h2 className="text-2xl font-bold text-red-600 text-center mb-8">Merak Ettikleriniz</h2>
+        <h2 className="text-2xl font-bold text-red-600 text-center mb-8">
+          Merak Ettikleriniz
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Soru kutuları */}
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Hangi videolar gönderilebilir?</h3>
             <p className="text-sm text-gray-700">
               Hukuka, insan haklarına ve kamu vicdanına aykırı olayları içeren; iftira, hakaret ve özel hayat ihlali barındırmayan tüm videolar gönderilebilir.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Gönderdiğim video ne işlem görür?</h3>
             <p className="text-sm text-gray-700">
-              Videonuz incelenir, uygun bulunursa ilgili kuruma iletilir. Sosyal medyada yayınlanabilmesi için abone olmanız gerekir.
+              Videonuz ekibimiz tarafından incelenir. Uygun görülmesi halinde ilgili kuruma iletilir. Sosyal medya hesaplarımızda yayınlanabilmesi için platformumuza abone olmanız gereklidir. Aksi durumda yalnızca ilgili makama yönlendirilir.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Kişisel bilgilerim güvende mi?</h3>
             <p className="text-sm text-gray-700">
-              Evet. Platformumuz kişisel bilgilerinizi talep etmez ve paylaşmaz. KVKK kapsamında gizliliğiniz korunur.
+              Evet. Platformumuz kişisel bilgilerinizi talep etmez ve hiçbir şekilde paylaşmaz. KVKK kapsamında gizliliğiniz tamamen korunur.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Kabul edilmeyen içerikler nelerdir?</h3>
             <p className="text-sm text-gray-700">
               - Yargı süreci devam eden konular<br />
               - İftira ve hakaret içeren videolar<br />
               - 30 saniyeyi aşan içerikler<br />
-              - Netlik veya bağlam içermeyen kayıtlar
+              - Yer/zaman bilgisi olmayan veya görüntü kalitesi bozuk kayıtlar
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Hangi kurumlara iletiliyor?</h3>
             <p className="text-sm text-gray-700">
-              İçeriğe göre: Trafik Başkanlığı, Emniyet Müdürlüğü, Sağlık Bakanlığı gibi ilgili kamu kurumlarına.
+              İçeriğin konusuna göre yetkili kuruma iletilir: Trafik → Trafik Başkanlığı, Asayiş → Emniyet, Sağlık → Sağlık Bakanlığı vb.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left">
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
             <h3 className="font-semibold mb-2 text-lg text-black text-center">Ad-soyad belirtmek zorunda mıyım?</h3>
             <p className="text-sm text-gray-700">
-              Hayır. Kimlik bilgisi paylaşmak zorunda değilsiniz. Tercihe bağlıdır.
+              Hayır. Kimlik bilgisi paylaşmak zorunda değilsiniz. Bu tamamen sizin tercihinizdir.
             </p>
           </div>
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 text-left md:col-span-2 md:w-1/2 md:mx-auto">
-            <h3 className="font-semibold mb-2 text-lg text-black text-center">Bildirim sonrası bilgi alabilir miyim?</h3>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left md:col-span-2 md:w-1/2 md:mx-auto">
+            <h3 className="font-semibold mb-2 text-lg text-black text-center">Bildirim sonrası bilgi alabiliyor muyum?</h3>
             <p className="text-sm text-gray-700">
-              Evet. Süreçle ilgili bilgilendirme yapılır.
+              Evet. Paylaşıma uygun görülen içeriklerle ilgili süreç hakkında size bilgilendirme yapılır.
             </p>
           </div>
         </div>
       </div>
+
+      <footer className="bg-gray-900 text-gray-300 text-sm text-center py-6">
+        <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
+        <div className="mt-2 space-x-4">
+          <Link href="/kvkk" className="hover:underline text-red-400">KVKK</Link>
+          <Link href="/yasal-uyari" className="hover:underline text-red-400">Yasal Uyarı</Link>
+          <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">YouTube</a>
+          <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">Instagram</a>
+        </div>
+        <p className="mt-2 text-xs">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
+      </footer>
     </main>
   );
 }
