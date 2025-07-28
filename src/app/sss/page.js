@@ -1,7 +1,11 @@
 'use client';
-// pages/sss.tsx
-import Head from "next/head";
+
 import { useState } from "react";
+
+export const metadata = {
+  title: "Sıkça Sorulan Sorular | TAVİZ YOK",
+  description: "TAVİZ YOK hakkında sıkça sorulan sorular ve cevapları bu sayfada.",
+};
 
 const sorular = [
   {
@@ -27,36 +31,30 @@ const sorular = [
 ];
 
 export default function SSS() {
-  const [acikIndex, setAcikIndex] = useState<number | null>(null);
+  const [acikIndex, setAcikIndex] = useState(null);
 
-  const toggle = (index: number) => {
+  const toggle = (index) => {
     setAcikIndex(acikIndex === index ? null : index);
   };
 
   return (
-    <>
-      <Head>
-        <title>SSS | TAVİZ YOK</title>
-        <meta name="description" content="TAVİZ YOK hakkında en çok merak edilen sorular ve cevapları bu sayfada." />
-      </Head>
-      <main className="max-w-3xl mx-auto px-4 py-10">
-        <h1 className="text-4xl font-bold text-center mb-8">Sıkça Sorulan Sorular</h1>
-        <div className="space-y-5">
-          {sorular.map((item, index) => (
-            <div key={index} className="border border-gray-200 rounded-xl shadow-sm p-4">
-              <button
-                onClick={() => toggle(index)}
-                className="w-full text-left text-lg font-medium focus:outline-none"
-              >
-                {item.soru}
-              </button>
-              {acikIndex === index && (
-                <p className="mt-3 text-gray-700">{item.cevap}</p>
-              )}
-            </div>
-          ))}
-        </div>
-      </main>
-    </>
+    <main className="max-w-3xl mx-auto px-4 py-10">
+      <h1 className="text-4xl font-bold text-center mb-8">Sıkça Sorulan Sorular</h1>
+      <div className="space-y-5">
+        {sorular.map((item, index) => (
+          <div key={index} className="border border-gray-200 rounded-xl shadow-sm p-4">
+            <button
+              onClick={() => toggle(index)}
+              className="w-full text-left text-lg font-medium focus:outline-none"
+            >
+              {item.soru}
+            </button>
+            {acikIndex === index && (
+              <p className="mt-3 text-gray-700">{item.cevap}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
