@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -7,26 +8,41 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-300 text-gray-900 font-sans">
       <Navbar />
-      <div className="flex flex-col items-center justify-center text-center px-4 py-16">
+
+      {/* 🟥 Sol bayrak */}
+      <img
+        src="/bayrak-turkiye.png"
+        alt="Türk Bayrağı Sol"
+        className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 w-20 md:w-24 animate-wave-slow"
+      />
+
+      {/* 🟥 Sağ bayrak */}
+      <img
+        src="/bayrak-turkiye.png"
+        alt="Türk Bayrağı Sağ"
+        className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 w-20 md:w-24 animate-wave-slow"
+      />
+
+      <div className="flex flex-col items-center justify-center text-center px-4 py-16 relative z-10">
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
         <div className="text-center max-w-xl mx-auto space-y-2 leading-loose">
-  <p className="text-xl md:text-2xl font-medium text-gray-800">
-    Hukuka, insan haklarına ve kamu vicdanına aykırı;
-  </p>
-  <p className="text-xl md:text-2xl font-medium text-gray-800">
-    haksız veya hukuksuz her durumu
-  </p>
-  <p className="text-xl md:text-2xl font-medium text-gray-800">
-    videoyla belgeleyin, bize gönderin.
-  </p>
-  <p className="text-xl md:text-2xl font-medium text-gray-800">
-    İlgili kuruma iletelim, kamuoyunu
-  </p>
-  <p className="text-xl md:text-2xl font-medium text-gray-800">
-     bilgilendirelim.
-  </p>
-</div>
+          <p className="text-xl md:text-2xl font-medium text-gray-800">
+            Hukuka, insan haklarına ve kamu vicdanına aykırı;
+          </p>
+          <p className="text-xl md:text-2xl font-medium text-gray-800">
+            haksız veya hukuksuz her durumu
+          </p>
+          <p className="text-xl md:text-2xl font-medium text-gray-800">
+            videoyla belgeleyin, bize gönderin.
+          </p>
+          <p className="text-xl md:text-2xl font-medium text-gray-800">
+            İlgili kuruma iletelim, kamuoyunu
+          </p>
+          <p className="text-xl md:text-2xl font-medium text-gray-800">
+            bilgilendirelim.
+          </p>
+        </div>
 
         <a
           href="https://wa.me/905304066686"
@@ -98,8 +114,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-     
     </main>
   );
 }
