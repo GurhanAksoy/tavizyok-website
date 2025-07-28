@@ -6,21 +6,21 @@ import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-300 text-gray-900 font-sans">
+    <main className="relative min-h-screen bg-gray-300 text-gray-900 font-sans overflow-hidden">
       <Navbar />
 
       {/* 🟥 Sol bayrak */}
       <img
         src="/bayrak-turkiye.png"
         alt="Türk Bayrağı Sol"
-        className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 w-20 md:w-24 animate-wave-slow"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 w-24 sm:w-32 animate-wave"
       />
 
       {/* 🟥 Sağ bayrak */}
       <img
         src="/bayrak-turkiye.png"
         alt="Türk Bayrağı Sağ"
-        className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 w-20 md:w-24 animate-wave-slow"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 w-24 sm:w-32 animate-wave"
       />
 
       <div className="flex flex-col items-center justify-center text-center px-4 py-16 relative z-10">
@@ -55,7 +55,7 @@ export default function Home() {
       </div>
 
       {/* ✅ Merak Ettikleriniz Bölümü */}
-      <div className="px-6 md:px-12 py-12">
+      <div className="px-6 md:px-12 py-12 z-10 relative">
         <h2 className="text-2xl font-bold text-red-600 text-center mb-8">
           Merak Ettikleriniz
         </h2>

@@ -37,3 +37,19 @@ button {
 button:hover {
   background-color: #cc0000;
 }
+
+/* ✅ Dalgalanma Efekti */
+@keyframes wave {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(1deg) translateY(-2px); }
+  50% { transform: rotate(0deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(2px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+.flag-wave {
+  animation: wave 3s ease-in-out infinite;
+  display: inline-block;
+  max-width: 64px;
+  height: auto;
+}
