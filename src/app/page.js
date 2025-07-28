@@ -38,29 +38,6 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-12 py-12">
-        <div className="bg-white rounded-xl shadow-md p-6 text-left">
-          <h2 className="font-bold text-lg mb-2">Nasıl Bildirim Gönderilir?</h2>
-          <ul className="list-disc list-inside text-sm text-gray-700">
-            <li>Videoyu maksimum 30 saniye olacak şekilde kaydedin.</li>
-            <li>Videoda yer ve zaman bilgisi belirtin.</li>
-            <li>WhatsApp hattımıza gönderin: <strong>0 530 406 66 86</strong></li>
-          </ul>
-        </div>
-        <div className="bg-white rounded-xl shadow-md p-6 text-left">
-          <h2 className="font-bold text-lg mb-2">Gönderiler Nereye Gider?</h2>
-          <p className="text-sm text-gray-700">
-            Trafikse Trafik Başkanlığı’na, asayişse Emniyet’e, sağlıkla ilgiliyse Sağlık Bakanlığı’na ya da yetkili kurumlara iletilir.
-          </p>
-        </div>
-        <div className="bg-white rounded-xl shadow-md p-6 text-left">
-          <h2 className="font-bold text-lg mb-2">Gizlilik ve Sorumluluk</h2>
-          <p className="text-sm text-gray-700">
-            TAVİZ YOK kullanıcıdan kişisel bilgi istemez. Gönderilen içeriklerden kullanıcı sorumludur. Platform yalnızca aracıdır.
-          </p>
-        </div>
-      </div>
-
       {/* ✅ Merak Ettikleriniz Bölümü */}
       <div className="px-6 md:px-12 py-12">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">
@@ -68,14 +45,14 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Hangi videolar gönderilebilir?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Hangi videolar gönderilebilir?</h3>
             <p className="text-sm text-gray-700">
               Hukuka, insan haklarına ve kamu vicdanına aykırı olayları içeren; iftira, hakaret ve özel hayat ihlali barındırmayan tüm videolar gönderilebilir.
             </p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Gönderdiğim video ne işlem görür?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Gönderdiğim video ne işlem görür?</h3>
             <p className="text-sm text-gray-700">
               Videonuz ekibimiz tarafından incelenir. Uygun görülmesi halinde ilgili kuruma iletilir.<br />
               Sosyal medya hesaplarımızda yayınlanabilmesi için platformumuza abone olmanız gereklidir. Aksi durumda yalnızca ilgili makama yönlendirilir.
@@ -83,14 +60,14 @@ export default function Home() {
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Kişisel bilgilerim güvende mi?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Kişisel bilgilerim güvende mi?</h3>
             <p className="text-sm text-gray-700">
               Evet. Platformumuz kişisel bilgilerinizi talep etmez ve hiçbir şekilde paylaşmaz. KVKK kapsamında gizliliğiniz tamamen korunur.
             </p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Kabul edilmeyen içerikler nelerdir?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Kabul edilmeyen içerikler nelerdir?</h3>
             <p className="text-sm text-gray-700">
               - Yargı süreci devam eden konular<br />
               - İftira ve hakaret içeren videolar<br />
@@ -100,21 +77,21 @@ export default function Home() {
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Hangi kurumlara iletiliyor?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Hangi kurumlara iletiliyor?</h3>
             <p className="text-sm text-gray-700">
               İçeriğin konusuna göre yetkili kuruma iletilir: Trafik → Trafik Başkanlığı, Asayiş → Emniyet, Sağlık → Sağlık Bakanlığı vb.
             </p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Ad-soyad belirtmek zorunda mıyım?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Ad-soyad belirtmek zorunda mıyım?</h3>
             <p className="text-sm text-gray-700">
               Hayır. Kimlik bilgisi paylaşmak zorunda değilsiniz. Bu tamamen sizin tercihinizdir.
             </p>
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-6 text-left">
-            <h3 className="font-semibold mb-2 text-lg text-red-600">Bildirim sonrası bilgi alabiliyor muyum?</h3>
+            <h3 className="font-semibold mb-2 text-lg text-blue-700">Bildirim sonrası bilgi alabiliyor muyum?</h3>
             <p className="text-sm text-gray-700">
               Evet. Paylaşıma uygun görülen içeriklerle ilgili süreç hakkında size bilgilendirme yapılır.
             </p>
