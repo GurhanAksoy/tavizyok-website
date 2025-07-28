@@ -1,4 +1,4 @@
-// app/layout.js
+'use client';
 
 import './globals.css';
 import Script from 'next/script';
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-background text-text-soft font-sans antialiased">
         <Navbar />
-        <main className="pt-20 px-4 max-w-7xl mx-auto">{children}</main>
+        <main className="pt-24 px-4 max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   );
