@@ -1,7 +1,12 @@
 // src/app/layout.js
 
 import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Script from 'next/script';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'TAVİZ YOK',
@@ -53,13 +58,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
-	<link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
+        <link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
         <link rel="canonical" href="https://tavizyok.com/" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="TAVİZ YOK Platformu" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Q3QNNYRCHJ"
@@ -78,8 +81,10 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="antialiased font-sans bg-white text-black">
-        {children}
+      <body className={`${inter.className} antialiased bg-white text-black flex flex-col min-h-screen`}>
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
