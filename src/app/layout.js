@@ -1,45 +1,85 @@
 // src/app/layout.js
+
 import './globals.css';
-import Navbar from '@/components/Navbar';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'TAVİZ YOK',
-  description: 'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim.',
+  description:
+    'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
+  keywords: [
+    'TAVİZ YOK',
+    'video ihbar',
+    'hukuksuzluk bildirimi',
+    'kamu vicdanı',
+    'insan hakları',
+    'hukuka aykırı olaylar',
+    'ihbar platformu',
+    'Türkiye ihbar hattı',
+    'trafik ihlali',
+    'video gönder',
+    'şikayet',
+    'kamu yararı',
+  ],
+  metadataBase: new URL('https://tavizyok.com'),
+  openGraph: {
+    title: 'TAVİZ YOK',
+    description:
+      'Vatandaşların kamu yararına hukuka aykırı olayları videoyla bildirip paylaşabileceği dijital platform.',
+    url: 'https://tavizyok.com',
+    siteName: 'TAVİZ YOK',
+    locale: 'tr_TR',
+    type: 'website',
+    images: [
+      {
+        url: 'https://tavizyok.com/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'TAVİZ YOK',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@TavizYok',
+    title: 'TAVİZ YOK',
+    description:
+      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de kamuoyunu ve yetkilileri bilgilendirelim.',
+    images: ['https://tavizyok.com/logo.png'],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <body className="bg-gray-100 text-gray-900 font-sans min-h-screen flex flex-col">
-        {/* Navbar */}
-        <header className="shadow bg-white sticky top-0 z-50">
-          <div className="container mx-auto px-4">
-            <Navbar />
-          </div>
-        </header>
+      <head>
+	<link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
+        <link rel="canonical" href="https://tavizyok.com/" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="TAVİZ YOK Platformu" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* Ana içerik */}
-        <main className="flex-1 container mx-auto px-4 py-8">
-          {children}
-        </main>
-
-        {/* Footer */}
-        <footer className="bg-gray-900 text-gray-100 text-sm py-6">
-          <div className="container mx-auto px-4 grid gap-2 md:flex md:justify-between md:items-center">
-            <div>
-              WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com
-            </div>
-            <div className="space-x-4 mt-2 md:mt-0">
-              <a href="/kvkk" className="hover:underline text-gray-300">KVKK</a>
-              <a href="/yasal-uyari" className="hover:underline text-gray-300">Yasal Uyarı</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-gray-300">YouTube</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-gray-300">Instagram</a>
-            </div>
-          </div>
-          <div className="text-center text-xs mt-4 text-gray-500">
-            © 2025 TAVİZ YOK. Tüm hakları saklıdır.
-          </div>
-        </footer>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q3QNNYRCHJ"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q3QNNYRCHJ');
+            `,
+          }}
+        />
+      </head>
+      <body className="antialiased font-sans bg-white text-black">
+        {children}
       </body>
     </html>
   );
