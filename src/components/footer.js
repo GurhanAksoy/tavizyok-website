@@ -1,26 +1,18 @@
-// components/Footer.js
-
-'use client';
-import Link from 'next/link';
-
+// src/components/Footer.js
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-200 text-sm py-6">
-      <div className="container mx-auto px-4 grid gap-4 md:flex md:justify-between md:items-center">
-        <div>
-          WhatsApp: 0 530 406 66 86<br />
-          E-posta: tavizyokplatformu@gmail.com
-        </div>
-        <div className="space-x-4">
-          <Link href="/kvkk" className="hover:underline text-gray-300">KVKK</Link>
-          <Link href="/yasal-uyari" className="hover:underline text-gray-300">Yasal Uyarı</Link>
-          <Link href="/sss" className="hover:underline text-gray-300">SSS</Link>
-          <a href="https://www.youtube.com/@tavizyok" target="_blank" rel="noopener noreferrer" className="hover:underline text-gray-300">YouTube</a>
-          <a href="https://www.instagram.com/tavizyok" target="_blank" rel="noopener noreferrer" className="hover:underline text-gray-300">Instagram</a>
-        </div>
-      </div>
-      <div className="text-center text-xs mt-4 text-gray-500">
-        © 2025 TAVİZ YOK. Tüm hakları saklıdır.
+    <footer className="bg-neutral-900 text-white py-6 mt-12">
+      <div className="max-w-6xl mx-auto px-4 text-center text-sm">
+        <p className="mb-2">
+          WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com
+        </p>
+        <p className="mb-2 space-x-4">
+          <a href="/kvkk" className="text-red-400 hover:underline">KVKK</a>
+          <a href="/yasal-uyari" className="text-red-400 hover:underline">Yasal Uyarı</a>
+          <a href="https://www.youtube.com/@taviz_yok" target="_blank" className="text-red-400 hover:underline">YouTube</a>
+          <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" className="text-red-400 hover:underline">Instagram</a>
+        </p>
+        <p className="text-xs text-gray-400">&copy; 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
       </div>
     </footer>
   );
