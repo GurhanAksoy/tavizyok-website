@@ -11,31 +11,31 @@ export default function Home() {
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
         <div className="max-w-2xl mx-auto space-y-2 leading-relaxed">
-  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-    Hukuksuzluğa, haksızlığa, insan haklarına ve
-  </p>
-  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-    kamu vicdanına aykırı her durumu
-  </p>
-  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-    videoyla belgeleyin, bize gönderin.
-  </p>
-  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-    Biz de ilgili kuruma iletelim.
-  </p>
-  <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-    Kamuoyuyla paylaşalım.
-  </p>
-</div>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Hukuksuzluğa, haksızlığa, insan haklarına ve
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            kamu vicdanına aykırı her durumu
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            videoyla belgeleyin, bize gönderin.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Biz de ilgili kuruma iletelim.
+          </p>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
+            Kamuoyuyla paylaşalım.
+          </p>
+        </div>
 
         <a
-  href="https://wa.me/905304066686"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mt-10 inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-full shadow-lg hover:bg-[#1ebe5d] transition"
->
-  📲 <span className="text-white">WhatsApp Bildirim Gönder</span>
-</a>
+          href="https://wa.me/905304066686"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-full shadow-lg hover:bg-[#1ebe5d] transition"
+        >
+          📲 <span className="text-white">WhatsApp Bildirim Gönder</span>
+        </a>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-12 py-12">
@@ -58,6 +58,67 @@ export default function Home() {
           <p className="text-sm text-gray-700">
             TAVİZ YOK kullanıcıdan kişisel bilgi istemez. Gönderilen içeriklerden kullanıcı sorumludur. Platform yalnızca aracıdır.
           </p>
+        </div>
+      </div>
+
+      {/* ✅ Merak Ettikleriniz Bölümü */}
+      <div className="px-6 md:px-12 py-12">
+        <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">
+          Merak Ettikleriniz
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Hangi videolar gönderilebilir?</h3>
+            <p className="text-sm text-gray-700">
+              Hukuka, insan haklarına ve kamu vicdanına aykırı olayları içeren; iftira, hakaret ve özel hayat ihlali barındırmayan tüm videolar gönderilebilir.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Gönderdiğim video ne işlem görür?</h3>
+            <p className="text-sm text-gray-700">
+              Videonuz ekibimiz tarafından incelenir. Uygun görülmesi halinde ilgili kuruma iletilir.<br />
+              Sosyal medya hesaplarımızda yayınlanabilmesi için platformumuza abone olmanız gereklidir. Aksi durumda yalnızca ilgili makama yönlendirilir.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Kişisel bilgilerim güvende mi?</h3>
+            <p className="text-sm text-gray-700">
+              Evet. Platformumuz kişisel bilgilerinizi talep etmez ve hiçbir şekilde paylaşmaz. KVKK kapsamında gizliliğiniz tamamen korunur.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Kabul edilmeyen içerikler nelerdir?</h3>
+            <p className="text-sm text-gray-700">
+              - Yargı süreci devam eden konular<br />
+              - İftira ve hakaret içeren videolar<br />
+              - 30 saniyeyi aşan içerikler<br />
+              - Yer/zaman bilgisi olmayan veya görüntü kalitesi bozuk kayıtlar
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Hangi kurumlara iletiliyor?</h3>
+            <p className="text-sm text-gray-700">
+              İçeriğin konusuna göre yetkili kuruma iletilir: Trafik → Trafik Başkanlığı, Asayiş → Emniyet, Sağlık → Sağlık Bakanlığı vb.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Ad-soyad belirtmek zorunda mıyım?</h3>
+            <p className="text-sm text-gray-700">
+              Hayır. Kimlik bilgisi paylaşmak zorunda değilsiniz. Bu tamamen sizin tercihinizdir.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-md p-6 text-left">
+            <h3 className="font-semibold mb-2 text-lg text-red-600">Bildirim sonrası bilgi alabiliyor muyum?</h3>
+            <p className="text-sm text-gray-700">
+              Evet. Paylaşıma uygun görülen içeriklerle ilgili süreç hakkında size bilgilendirme yapılır.
+            </p>
+          </div>
         </div>
       </div>
 
