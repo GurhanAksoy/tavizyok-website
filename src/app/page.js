@@ -10,23 +10,23 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center text-center px-4 py-16">
         <Image src="/logo.png" alt="TAVİZ YOK Logo" width={250} height={250} className="mb-6" />
 
-        <div className="max-w-2xl mx-auto space-y-2 leading-relaxed">
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Hukuksuzluğa, haksızlığa, insan haklarına ve
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-            kamu vicdanına aykırı her durumu
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-            videoyla belgeleyin, bize gönderin.
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Biz de ilgili kuruma iletelim.
-          </p>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Kamuoyuyla paylaşalım.
-          </p>
-        </div>
+        <div className="text-center max-w-xl mx-auto space-y-2 leading-loose">
+  <p className="text-xl md:text-2xl font-medium text-gray-800">
+    Hukuka, insan haklarına ve kamu vicdanına aykırı;
+  </p>
+  <p className="text-xl md:text-2xl font-medium text-gray-800">
+    haksız veya hukuksuz her durumu
+  </p>
+  <p className="text-xl md:text-2xl font-medium text-gray-800">
+    videoyla belgeleyin, bize gönderin.
+  </p>
+  <p className="text-xl md:text-2xl font-medium text-gray-800">
+    İlgili kuruma iletelim, kamuoyunu
+  </p>
+  <p className="text-xl md:text-2xl font-medium text-gray-800">
+    birlikte bilgilendirelim.
+  </p>
+</div>
 
         <a
           href="https://wa.me/905304066686"
