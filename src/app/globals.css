@@ -1,41 +1,9 @@
-@import "tailwindcss";
 
-:root {
-  --background: #f5f5dc; /* Bej rengi */
-  --foreground: #111111;
-  --accent: #e60000;
-  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Arka plan bej rengi */
+.bg-bej {
+  background-color: #f5f5dc;
 }
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  background-color: var(--accent);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
-}
-
-button:hover {
-  background-color: #cc0000;
-}
-
-/* Temizlik: Tüm bayrak animasyonları ve wave class'ı kaldırıldı */
