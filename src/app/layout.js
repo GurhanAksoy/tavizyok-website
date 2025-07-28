@@ -1,26 +1,13 @@
-// src/app/layout.js
+// app/layout.js
 
 import './globals.css';
 import Script from 'next/script';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'TAVİZ YOK',
   description:
     'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
-  keywords: [
-    'TAVİZ YOK',
-    'video ihbar',
-    'hukuksuzluk bildirimi',
-    'kamu vicdanı',
-    'insan hakları',
-    'hukuka aykırı olaylar',
-    'ihbar platformu',
-    'Türkiye ihbar hattı',
-    'trafik ihlali',
-    'video gönder',
-    'şikayet',
-    'kamu yararı',
-  ],
   metadataBase: new URL('https://tavizyok.com'),
   openGraph: {
     title: 'TAVİZ YOK',
@@ -53,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
-	<link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
+        <link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
         <link rel="canonical" href="https://tavizyok.com/" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="TAVİZ YOK Platformu" />
@@ -78,8 +65,9 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="antialiased font-sans bg-white text-black">
-        {children}
+      <body className="bg-background text-text-soft font-sans antialiased">
+        <Navbar />
+        <main className="pt-20 px-4 max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   );
