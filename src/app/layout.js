@@ -1,5 +1,3 @@
-// src/app/layout.js
-
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
@@ -18,7 +16,6 @@ export const metadata = {
     'hukuksuzluk bildirimi',
     'kamu vicdanı',
     'insan hakları',
-    'hukuka aykırı olaylar',
     'ihbar platformu',
     'Türkiye ihbar hattı',
     'trafik ihlali',
@@ -86,7 +83,17 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} antialiased font-sans bg-white text-black`}>
         <Navbar />
         {children}
-             </body>
+        <footer className="bg-gray-900 text-gray-300 text-sm text-center py-6 mt-10">
+          <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
+          <div className="mt-2 space-x-4">
+            <Link href="/kvkk" className="hover:underline text-red-400">KVKK</Link>
+            <Link href="/yasal-uyari" className="hover:underline text-red-400">Yasal Uyarı</Link>
+            <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">YouTube</a>
+            <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">Instagram</a>
+          </div>
+          <p className="mt-2 text-xs">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
+        </footer>
+      </body>
     </html>
   );
 }
