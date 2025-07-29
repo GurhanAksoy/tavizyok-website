@@ -16,8 +16,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Taviz Yok Logo"
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             className="object-contain"
             priority
           />
