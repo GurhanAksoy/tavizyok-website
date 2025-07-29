@@ -16,12 +16,12 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Taviz Yok Logo"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
             className="object-contain"
             priority
           />
-          <span className="text-xl font-bold text-gray-800">TAVİZ YOK</span>
+          <span className="text-xl font-bold text-gray-600">TAVİZ YOK</span>
         </Link>
 
         {/* Hamburger Icon */}
