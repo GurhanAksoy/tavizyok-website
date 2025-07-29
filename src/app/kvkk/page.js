@@ -17,7 +17,7 @@ export default function KVKK() {
         <p>
           <strong>Veri Sorumlusu:</strong><br />
           TAVİZ YOK Platformu<br />
-          İletişim: tavizyokplatformu@gmail.com
+          İletişim: iletisim@tavizyok.com
         </p>
 
         <h2 className="text-xl font-semibold mt-6">2. İşlenen Kişisel Veriler</h2>
@@ -95,7 +95,7 @@ export default function KVKK() {
           <li>Otomatik sistemlerce analiz edilmesi durumunda buna itiraz etme.</li>
         </ul>
         <p>
-          Taleplerinizi <strong>tavizyokplatformu@gmail.com</strong> adresine e-posta göndererek iletebilirsiniz.
+          Taleplerinizi <strong>iletisim@tavizyok.com</strong> adresine e-posta göndererek iletebilirsiniz.
         </p>
 
         <h2 className="text-xl font-semibold mt-6">8. Kullanıcı Onayı ve Sorumluluk</h2>
