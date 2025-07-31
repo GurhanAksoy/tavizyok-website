@@ -16,16 +16,16 @@ export default function Home() {
             Hukuka, insan haklarına ve kamu vicdanına aykırı;
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
-            haksız veya hukuksuz her durumu
+            haksız veya hukuksuz her durumu vidoyla belgeleyin,
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
-            videoyla belgeleyin, bize gönderin.
+            bize gönderin. İlgili kuruma iletelim, 
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
-            İlgili kuruma iletelim, kamuoyunu
+            kamuoyunu bilgilendirelim.
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
-            bilgilendirelim.
+            Kimliğiniz gizli kalır.
           </p>
         </div>
 
