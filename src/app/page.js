@@ -16,7 +16,7 @@ export default function Home() {
             Hukuka, insan haklarına ve kamu vicdanına aykırı;
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
-            haksız veya hukuksuz her durumu vidoyla belgeleyin,
+            haksız-hukuksuz her durumu vidoyla belgeleyin,
           </p>
           <p className="text-xl md:text-2xl font-medium text-gray-800">
             bize gönderin. İlgili kuruma iletelim, 
