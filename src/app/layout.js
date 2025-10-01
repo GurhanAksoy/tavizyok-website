@@ -1,54 +1,13 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
-import Link from 'next/link';
+import Footer from '@/components/Footer';  // 👈 YENİ
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'TAVİZ YOK',
-  description:
-    'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de ilgili kuruma iletelim ve kamuoyunu bilgilendirelim.',
-  keywords: [
-    'TAVİZ YOK',
-    'video ihbar',
-    'hukuksuzluk bildirimi',
-    'kamu vicdanı',
-    'insan hakları',
-    'ihbar platformu',
-    'Türkiye ihbar hattı',
-    'trafik ihlali',
-    'video gönder',
-    'şikayet',
-    'kamu yararı',
-  ],
-  metadataBase: new URL('https://tavizyok.com'),
-  openGraph: {
-    title: 'TAVİZ YOK',
-    description:
-      'Vatandaşların kamu yararına hukuka aykırı olayları videoyla bildirip paylaşabileceği dijital platform.',
-    url: 'https://tavizyok.com',
-    siteName: 'TAVİZ YOK',
-    locale: 'tr_TR',
-    type: 'website',
-    images: [
-      {
-        url: 'https://tavizyok.com/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'TAVİZ YOK',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@TavizYok',
-    title: 'TAVİZ YOK',
-    description:
-      'Hukuka, insan haklarına ve kamu vicdanına aykırı olayları videoyla belgeleyin. Bize gönderin, biz de kamuoyunu ve yetkilileri bilgilendirelim.',
-    images: ['https://tavizyok.com/logo.png'],
-  },
+  // ... aynı kalacak ...
 };
 
 export default function RootLayout({ children }) {
@@ -83,16 +42,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} antialiased font-sans bg-[#f7f7f7] text-black`}>
         <Navbar />
         {children}
-        <footer className="bg-gray-900 text-gray-300 text-sm text-center py-6 mt-10">
-          <p>WhatsApp: 0 530 406 66 86 | E-posta: tavizyokplatformu@gmail.com</p>
-          <div className="mt-2 space-x-4">
-            <Link href="/kvkk" className="hover:underline text-red-400">KVKK</Link>
-            <Link href="/yasal-uyari" className="hover:underline text-red-400">Yasal Uyarı</Link>
-            <a href="https://www.youtube.com/@Taviz_Yok" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">YouTube</a>
-            <a href="https://www.instagram.com/tavizyokplatformu" target="_blank" rel="noopener noreferrer" className="hover:underline text-red-400">Instagram</a>
-          </div>
-          <p className="mt-2 text-xs">© 2025 TAVİZ YOK. Tüm hakları saklıdır.</p>
-        </footer>
+        <Footer />  {/* 👈 ESKİ FOOTER KODUNU SİL, BUNU EKLE */}
       </body>
     </html>
   );
