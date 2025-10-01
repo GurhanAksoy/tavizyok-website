@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
+	<title>TAVİZ YOK</title>
         <link rel="icon" href="/tavizyok.ico" type="image/x-icon" />
         <link rel="canonical" href="https://tavizyok.com/" />
         <meta name="robots" content="index, follow" />
