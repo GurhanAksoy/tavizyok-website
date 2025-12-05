@@ -9,19 +9,19 @@ export default function PremiumHeader() {
   const [emailData, setEmailData] = useState({ yetkili: "", email: "", mesaj: "" })
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState("")
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!emailData.yetkili || !emailData.email || !emailData.mesaj) {
-      setError(true)
-      setTimeout(() => setError(false), 3000)
+    if (!emailData.yetkili.trim() || !emailData.email.trim() || !emailData.mesaj.trim()) {
+      setError("Lütfen tüm alanları doldurun")
+      setTimeout(() => setError(""), 3000)
       return
     }
 
     setLoading(true)
-    setError(false)
+    setError("")
 
     try {
       const response = await fetch("/api/send-email", {
@@ -36,7 +36,9 @@ export default function PremiumHeader() {
         })
       })
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (response.ok && data.success) {
         setSubmitted(true)
         setEmailData({ yetkili: "", email: "", mesaj: "" })
         setTimeout(() => {
@@ -44,22 +46,16 @@ export default function PremiumHeader() {
           setShowEmailModal(false)
         }, 3000)
       } else {
-        setError(true)
-        setTimeout(() => setError(false), 5000)
+        setError(data.error || "Mail gönderilemedi. Lütfen tekrar deneyin.")
+        setTimeout(() => setError(""), 5000)
       }
     } catch (err) {
       console.error("Error:", err)
-      setError(true)
-      setTimeout(() => setError(false), 5000)
+      setError("Bağlantı hatası. Lütfen tekrar deneyin.")
+      setTimeout(() => setError(""), 5000)
     } finally {
       setLoading(false)
     }
-  }
-
-  const openEmailModal = (e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setShowEmailModal(true)
   }
 
   return (
@@ -85,7 +81,11 @@ export default function PremiumHeader() {
             <div className="hidden md:flex items-center space-x-6">
               <button 
                 type="button"
-                onClick={openEmailModal}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setShowEmailModal(true)
+                }}
                 className="flex items-center space-x-2 text-kirmizi-600 hover:text-kirmizi-700 transition-colors font-semibold group"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -113,6 +113,7 @@ export default function PremiumHeader() {
                 type="button"
                 onClick={(e) => { 
                   e.preventDefault()
+                  e.stopPropagation()
                   setShowEmailModal(true)
                   setMobileMenuOpen(false)
                 }} 
@@ -139,12 +140,16 @@ export default function PremiumHeader() {
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" 
           onClick={(e) => {
             e.preventDefault()
+            e.stopPropagation()
             if (!loading) setShowEmailModal(false)
           }}
         >
           <div 
             className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl animate-scale-in" 
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
           >
             {submitted ? (
               <div className="text-center py-12">
@@ -167,6 +172,7 @@ export default function PremiumHeader() {
                     type="button"
                     onClick={(e) => {
                       e.preventDefault()
+                      e.stopPropagation()
                       setShowEmailModal(false)
                     }} 
                     className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-lg" 
@@ -181,8 +187,7 @@ export default function PremiumHeader() {
                     <div className="flex items-center space-x-3">
                       <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
                       <div>
-                        <p className="text-red-800 font-semibold">Tüm alanları doldurun</p>
-                        <p className="text-red-600 text-sm">Lütfen tüm zorunlu alanları eksiksiz doldurun.</p>
+                        <p className="text-red-800 font-semibold">{error}</p>
                       </div>
                     </div>
                   </div>
