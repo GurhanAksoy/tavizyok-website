@@ -1,17 +1,46 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
-import { Building2, BarChart3, Mail, X, Send, Menu } from "lucide-react"
+import { Building2, BarChart3, Mail, X, Send, Menu, CheckCircle } from "lucide-react"
 
 export default function PremiumHeader() {
   const [showEmailModal, setShowEmailModal] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [emailData, setEmailData] = useState({ konu: "", mesaj: "" })
+  const [emailData, setEmailData] = useState({ name: "", email: "", subject: "", message: "" })
+  const [loading, setLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    window.location.href = `mailto:iletisim@tavizyok.com?subject=${encodeURIComponent(emailData.konu)}&body=${encodeURIComponent(emailData.mesaj)}`
-    setShowEmailModal(false)
+    setLoading(true)
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kurumAdi: emailData.name,
+          yetkili: emailData.name,
+          email: emailData.email,
+          telefon: "-",
+          mesaj: `${emailData.subject}\n\n${emailData.message}`
+        })
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setEmailData({ name: "", email: "", subject: "", message: "" })
+        setTimeout(() => {
+          setSubmitted(false)
+          setShowEmailModal(false)
+        }, 3000)
+      }
+    } catch (error) {
+      console.error("Error:", error)
+      alert("Mail gönderilemedi. Lütfen tekrar deneyin.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -31,8 +60,8 @@ export default function PremiumHeader() {
             </button>
 
             <div className="hidden md:flex items-center space-x-6">
-              <button onClick={() => setShowEmailModal(true)} className="flex items-center space-x-2 text-kirmizi-600 hover:text-kirmizi-700 transition-colors font-semibold">
-                <Mail className="w-4 h-4" />
+              <button onClick={() => setShowEmailModal(true)} className="flex items-center space-x-2 text-kirmizi-600 hover:text-kirmizi-700 transition-colors font-semibold group">
+                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">E-posta Gönder</span>
               </button>
             </div>
@@ -71,28 +100,53 @@ export default function PremiumHeader() {
       </header>
 
       {showEmailModal && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" onClick={() => setShowEmailModal(false)}>
-          <div className="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl md:text-2xl font-bold text-lacivert-900">E-posta Gönder</h3>
-              <button onClick={() => setShowEmailModal(false)} className="text-gray-400 hover:text-gray-600">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <form onSubmit={handleEmailSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Konu</label>
-                <input type="text" required value={emailData.konu} onChange={(e) => setEmailData({...emailData, konu: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none" placeholder="Mesaj konusu" />
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" onClick={() => !loading && setShowEmailModal(false)}>
+          <div className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl transform scale-100 animate-scale-in" onClick={(e) => e.stopPropagation()}>
+            {submitted ? (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                  <CheckCircle className="w-10 h-10 text-green-600" />
+                </div>
+                <h3 className="text-3xl font-bold text-green-600 mb-3">Gönderildi!</h3>
+                <p className="text-gray-600 text-lg">Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağız.</p>
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Mesajınız</label>
-                <textarea rows={4} required value={emailData.mesaj} onChange={(e) => setEmailData({...emailData, mesaj: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none resize-none" placeholder="Mesajınızı yazın..." />
-              </div>
-              <button type="submit" className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-kirmizi-600 hover:bg-kirmizi-700 text-white rounded-xl font-bold transition-all">
-                <Send className="w-5 h-5" />
-                <span>Gönder</span>
-              </button>
-            </form>
+            ) : (
+              <>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-kirmizi-600 to-kirmizi-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <Mail className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-lacivert-900">E-posta Gönder</h3>
+                  </div>
+                  <button onClick={() => setShowEmailModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-lg" disabled={loading}>
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+                <form onSubmit={handleEmailSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
+                    <input type="text" required value={emailData.name} onChange={(e) => setEmailData({...emailData, name: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none transition-colors" placeholder="Ad Soyad" disabled={loading} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">E-posta Adresiniz</label>
+                    <input type="email" required value={emailData.email} onChange={(e) => setEmailData({...emailData, email: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none transition-colors" placeholder="ornek@domain.com" disabled={loading} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Konu</label>
+                    <input type="text" required value={emailData.subject} onChange={(e) => setEmailData({...emailData, subject: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none transition-colors" placeholder="Mesaj konusu" disabled={loading} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Mesajınız</label>
+                    <textarea rows={4} required value={emailData.message} onChange={(e) => setEmailData({...emailData, message: e.target.value})} className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-kirmizi-600 focus:outline-none resize-none transition-colors" placeholder="Mesajınızı yazın..." disabled={loading} />
+                  </div>
+                  <button type="submit" disabled={loading} className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-kirmizi-600 to-kirmizi-700 hover:from-kirmizi-700 hover:to-kirmizi-800 text-white rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                    <Send className="w-5 h-5" />
+                    <span>{loading ? "Gönderiliyor..." : "Gönder"}</span>
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       )}
