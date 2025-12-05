@@ -1,9 +1,6 @@
 "use client"
 
 import { MapPin, TrendingUp, Users } from "lucide-react"
-import dynamic from "next/dynamic"
-
-const DynamicTurkeyMap = dynamic(() => import("./dynamic-turkey-map"), { ssr: false })
 
 export default function TurkeyMapSection() {
   const mapStats = [
@@ -28,7 +25,15 @@ export default function TurkeyMapSection() {
           <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">Merkezi panel ile tüm Türkiye'yi tek ekrandan görüntüleyin</p>
         </div>
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
-          <DynamicTurkeyMap />
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-8 md:p-12 aspect-square flex items-center justify-center">
+            <div className="text-center">
+              <img src="/bayrak.svg" alt="Türkiye Haritası" className="w-full max-w-xs md:max-w-md mx-auto opacity-80 mb-4 md:mb-6" />
+              <div className="text-white/60 text-xs md:text-sm">
+                <p>Türkiye Geneli Kapsam</p>
+                <p className="font-semibold mt-2">81 İl • 922 İlçe • 1.405 Belediye</p>
+              </div>
+            </div>
+          </div>
           <div className="space-y-4 md:space-y-6">
             {mapStats.map((stat, idx) => {
               const IconComponent = stat.icon
@@ -49,12 +54,6 @@ export default function TurkeyMapSection() {
                 </div>
               )
             })}
-          </div>
-        </div>
-        <div className="mt-12 md:mt-16 text-center px-4">
-          <div className="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl md:rounded-2xl px-6 md:px-8 py-4 md:py-6">
-            <p className="text-white text-base md:text-lg lg:text-xl font-semibold mb-2">İnteraktif Harita</p>
-            <p className="text-gray-300 text-xs md:text-sm">Her ile tıklayarak detaylı istatistikleri görün</p>
           </div>
         </div>
       </div>
