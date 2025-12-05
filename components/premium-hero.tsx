@@ -52,7 +52,7 @@ export default function PremiumHero() {
             </div>
             <div className="relative animate-scale-in">
               <div className="absolute inset-0 bg-gradient-to-r from-kirmizi-600 to-blue-600 rounded-full blur-3xl opacity-20" />
-              <img src="/bayrak.gif" alt="Türkiye" className="relative w-full max-w-xl mx-auto drop-shadow-2xl" />
+              <img src="/bayrak.gif" alt="Türkiye" className="relative w-full max-w-md mx-auto drop-shadow-2xl" />
             </div>
           </div>
         </div>
