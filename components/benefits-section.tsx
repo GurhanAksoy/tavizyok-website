@@ -2,9 +2,10 @@
 
 import { Clock, Target, BarChart3, Rocket, Award } from "lucide-react"
 import { LucideIcon } from "lucide-react"
+import React from "react"
 
 interface Benefit {
-  icon: LucideIcon | (() => JSX.Element)
+  icon: LucideIcon | (() => React.ReactElement)
   title: string
   description: string
   stat: string
@@ -47,7 +48,7 @@ export default function BenefitsSection() {
                   <h3 className="text-xl md:text-2xl font-bold text-lacivert-900 mb-3 md:mb-4">{benefit.title}</h3>
                   <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">{benefit.description}</p>
                 </div>
-                <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${benefit.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-2xl md:rounded-b-3xl`} />
+                <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${benefit.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-2xl md:rounded-3xl`} />
               </div>
             )
           })}
