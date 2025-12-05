@@ -13,6 +13,13 @@ export default function PremiumHeader() {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!emailData.yetkili || !emailData.email || !emailData.mesaj) {
+      setError(true)
+      setTimeout(() => setError(false), 3000)
+      return
+    }
+
     setLoading(true)
     setError(false)
 
@@ -40,13 +47,19 @@ export default function PremiumHeader() {
         setError(true)
         setTimeout(() => setError(false), 5000)
       }
-    } catch (error) {
-      console.error("Error:", error)
+    } catch (err) {
+      console.error("Error:", err)
       setError(true)
       setTimeout(() => setError(false), 5000)
     } finally {
       setLoading(false)
     }
+  }
+
+  const openEmailModal = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowEmailModal(true)
   }
 
   return (
@@ -61,13 +74,18 @@ export default function PremiumHeader() {
               </div>
             </div>
 
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-lacivert-900">
+            <button 
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              className="md:hidden p-2 text-lacivert-900"
+            >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
             <div className="hidden md:flex items-center space-x-6">
               <button 
-                onClick={() => setShowEmailModal(true)} 
+                type="button"
+                onClick={openEmailModal}
                 className="flex items-center space-x-2 text-kirmizi-600 hover:text-kirmizi-700 transition-colors font-semibold group"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -92,7 +110,12 @@ export default function PremiumHeader() {
           <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="container mx-auto px-4 py-4 space-y-3">
               <button 
-                onClick={() => { setShowEmailModal(true); setMobileMenuOpen(false); }} 
+                type="button"
+                onClick={(e) => { 
+                  e.preventDefault()
+                  setShowEmailModal(true)
+                  setMobileMenuOpen(false)
+                }} 
                 className="w-full flex items-center space-x-2 px-4 py-3 text-kirmizi-600 hover:bg-kirmizi-50 rounded-lg transition-colors font-semibold"
               >
                 <Mail className="w-5 h-5" />
@@ -112,8 +135,17 @@ export default function PremiumHeader() {
       </header>
 
       {showEmailModal && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" onClick={() => !loading && setShowEmailModal(false)}>
-          <div className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl animate-scale-in" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" 
+          onClick={(e) => {
+            e.preventDefault()
+            if (!loading) setShowEmailModal(false)
+          }}
+        >
+          <div 
+            className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl animate-scale-in" 
+            onClick={(e) => e.stopPropagation()}
+          >
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -131,7 +163,15 @@ export default function PremiumHeader() {
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold text-lacivert-900">E-posta Gönder</h3>
                   </div>
-                  <button onClick={() => setShowEmailModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-lg" disabled={loading}>
+                  <button 
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setShowEmailModal(false)
+                    }} 
+                    className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-lg" 
+                    disabled={loading}
+                  >
                     <X className="w-6 h-6" />
                   </button>
                 </div>
@@ -141,8 +181,8 @@ export default function PremiumHeader() {
                     <div className="flex items-center space-x-3">
                       <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
                       <div>
-                        <p className="text-red-800 font-semibold">Mail gönderilemedi</p>
-                        <p className="text-red-600 text-sm">Lütfen tekrar deneyin veya WhatsApp'tan ulaşın.</p>
+                        <p className="text-red-800 font-semibold">Tüm alanları doldurun</p>
+                        <p className="text-red-600 text-sm">Lütfen tüm zorunlu alanları eksiksiz doldurun.</p>
                       </div>
                     </div>
                   </div>
@@ -150,7 +190,7 @@ export default function PremiumHeader() {
 
                 <form onSubmit={handleEmailSubmit} className="space-y-5">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız *</label>
                     <input 
                       type="text" 
                       required 
@@ -162,7 +202,7 @@ export default function PremiumHeader() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">E-posta Adresiniz</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">E-posta Adresiniz *</label>
                     <input 
                       type="email" 
                       required 
@@ -174,7 +214,7 @@ export default function PremiumHeader() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">Mesajınız</label>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Mesajınız *</label>
                     <textarea 
                       rows={5} 
                       required 
