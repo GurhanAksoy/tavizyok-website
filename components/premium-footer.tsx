@@ -1,4 +1,4 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import { Mail, MessageCircle } from "lucide-react"
 
 export default function PremiumFooter() {
@@ -15,16 +15,16 @@ export default function PremiumFooter() {
                 <p className="text-xs md:text-sm text-lacivert-900 font-semibold">Dijital Bildirim Platformu</p>
               </div>
             </div>
-            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">Türkiye'nin dijital bildirim platformu. Hızlı, şeffaf ve çözüm odaklı hizmetten taviz yok.</p>
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">Türkiyenin dijital bildirim platformu. Hızlı, şeffaf ve çözüm odaklı hizmetten taviz yok.</p>
           </div>
 
           <div>
             <h4 className="text-base md:text-lg font-bold text-white mb-4 md:mb-6">Kurumsal</h4>
             <ul className="space-y-2 md:space-y-3 text-xs md:text-sm">
-              <li><Link href="#hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
-              <li><Link href="#vizyon" className="hover:text-white transition-colors">Vizyon & Misyon</Link></li>
-              <li><Link href="#ekip" className="hover:text-white transition-colors">Ekibimiz</Link></li>
-              <li><Link href="#basin" className="hover:text-white transition-colors">Basın Kiti</Link></li>
+              <li><Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
+              <li><Link href="/vizyon" className="hover:text-white transition-colors">Vizyon & Misyon</Link></li>
+              <li><Link href="/ekibimiz" className="hover:text-white transition-colors">Ekibimiz</Link></li>
+              <li><Link href="/basin" className="hover:text-white transition-colors">Basın Kiti</Link></li>
             </ul>
           </div>
 

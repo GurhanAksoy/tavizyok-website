@@ -13,7 +13,7 @@ export default function PremiumHero() {
             <div className="animate-fade-in text-center lg:text-left">
               <div className="inline-flex items-center space-x-2 bg-altin/20 border border-altin/40 px-4 py-2 rounded-full mb-8">
                 <span className="w-2 h-2 bg-altin rounded-full animate-pulse" />
-                <span className="text-white font-semibold text-sm">Hizmette Aksamalara TAVİZ YOK </span>
+                <span className="text-white font-semibold text-sm">Hizmette Aksaklıklara TAVİZ YOK </span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
                 Türkiye'nin<br />
