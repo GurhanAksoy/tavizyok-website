@@ -1,7 +1,7 @@
 ﻿"use client"
 
 import { useState } from "react"
-import { Building2, BarChart3, Mail, X, Send, Menu, CheckCircle } from "lucide-react"
+import { Building2, BarChart3, Mail, X, Send, Menu, CheckCircle, AlertCircle } from "lucide-react"
 
 export default function PremiumHeader() {
   const [showEmailModal, setShowEmailModal] = useState(false)
@@ -9,10 +9,12 @@ export default function PremiumHeader() {
   const [emailData, setEmailData] = useState({ yetkili: "", email: "", mesaj: "" })
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setError(false)
 
     try {
       const response = await fetch("/api/send-email", {
@@ -35,11 +37,13 @@ export default function PremiumHeader() {
           setShowEmailModal(false)
         }, 3000)
       } else {
-        alert("Mail gönderilemedi. Lütfen tekrar deneyin.")
+        setError(true)
+        setTimeout(() => setError(false), 5000)
       }
     } catch (error) {
       console.error("Error:", error)
-      alert("Bir hata oluştu. Lütfen tekrar deneyin.")
+      setError(true)
+      setTimeout(() => setError(false), 5000)
     } finally {
       setLoading(false)
     }
@@ -131,6 +135,19 @@ export default function PremiumHeader() {
                     <X className="w-6 h-6" />
                   </button>
                 </div>
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl animate-scale-in">
+                    <div className="flex items-center space-x-3">
+                      <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+                      <div>
+                        <p className="text-red-800 font-semibold">Mail gönderilemedi</p>
+                        <p className="text-red-600 text-sm">Lütfen tekrar deneyin veya WhatsApp'tan ulaşın.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <form onSubmit={handleEmailSubmit} className="space-y-5">
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
