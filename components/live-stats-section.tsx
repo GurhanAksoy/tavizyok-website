@@ -10,6 +10,7 @@ export default function LiveStatsSection() {
     const steps = 60
     const increment = duration / steps
     const targets = { belediye: 1405, valilik: 81, kaymakamlik: 922, vatandas: 85 }
+
     let step = 0
     const timer = setInterval(() => {
       step++
@@ -22,6 +23,7 @@ export default function LiveStatsSection() {
       })
       if (step >= steps) clearInterval(timer)
     }, increment)
+
     return () => clearInterval(timer)
   }, [])
 
@@ -29,7 +31,7 @@ export default function LiveStatsSection() {
     { label: "Belediye", value: counters.belediye, suffix: "+", color: "from-kirmizi-600 to-kirmizi-700" },
     { label: "İl Valiliği", value: counters.valilik, suffix: "", color: "from-blue-600 to-blue-700" },
     { label: "Kaymakamlık", value: counters.kaymakamlik, suffix: "+", color: "from-green-600 to-green-700" },
-    { label: "Milyon Vatandaş", value: counters.vatandas, suffix: "M", color: "from-purple-600 to-purple-700" }
+    { label: "Milyon Vatandaş", value: counters.vatandas, suffix: "", color: "from-purple-600 to-purple-700" }
   ]
 
   return (

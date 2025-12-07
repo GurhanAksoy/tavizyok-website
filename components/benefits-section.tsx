@@ -27,7 +27,7 @@ export default function BenefitsSection() {
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-lacivert-900">BELEDİYELER İÇİN 6 KRİTİK FAYDA</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-lacivert-900">KURUMLAR İÇİN 6 KRİTİK FAYDA</h2>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">Kanıtlanmış sonuçlar, ölçülebilir değer</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">

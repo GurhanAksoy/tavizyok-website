@@ -5,8 +5,10 @@ import { ArrowRight, Play } from "lucide-react"
 export default function PremiumHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-lacivert-900 via-lacivert-800 to-lacivert-900">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(220,38,38,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-kirmizi-600 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl opacity-30 animate-pulse" style={{animationDelay: '1s'}} />
+      </div>
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

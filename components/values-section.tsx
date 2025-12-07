@@ -1,11 +1,11 @@
 "use client"
 
-import { Shield, Scale, Handshake, Target, MessageSquare, Zap } from "lucide-react"
+import { Shield, Globe, Handshake, Target, MessageSquare, Zap } from "lucide-react"
 
 export default function ValuesSection() {
   const values = [
     { icon: Shield, title: "Etiklik", description: "Dürüstlük ve sorumluluk ilkesiyle hareket ederiz", color: "from-blue-500 to-blue-600" },
-    { icon: Scale, title: "Şeffaflık", description: "Tüm süreçler açık ve izlenebilir", color: "from-cyan-500 to-cyan-600" },
+    { icon: Globe, title: "Şeffaflık", description: "Tüm süreçler açık ve izlenebilir", color: "from-cyan-500 to-cyan-600" },
     { icon: Handshake, title: "Güven", description: "Vatandaş ve kurum arasında köprü", color: "from-green-500 to-green-600" },
     { icon: Target, title: "Çözüm Odaklılık", description: "Her bildirim bir çözüm fırsatı", color: "from-orange-500 to-orange-600" },
     { icon: MessageSquare, title: "Etkin İletişim", description: "Hızlı, net ve sürekli bilgilendirme", color: "from-purple-500 to-purple-600" },
