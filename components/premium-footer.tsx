@@ -15,7 +15,7 @@ export default function PremiumFooter() {
                 <p className="text-xs md:text-sm text-lacivert-900 font-semibold">Dijital Bildirim Platformu</p>
               </div>
             </div>
-            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">Türkiyenin dijital bildirim platformu. Hızlı, şeffaf ve çözüm odaklı hizmetten taviz yok.</p>
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed">Türkiyenin dijital bildirim platformu. Hızlı, şeffaf ve çözüm odaklı hizmetten TAVİZ YOK.</p>
           </div>
 
           <div>
