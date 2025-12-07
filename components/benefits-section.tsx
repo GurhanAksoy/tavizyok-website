@@ -10,7 +10,6 @@ interface Benefit {
   description: string
   stat: string
   color: string
-  darkText?: boolean
 }
 
 export default function BenefitsSection() {
@@ -20,7 +19,7 @@ export default function BenefitsSection() {
     { icon: Target, title: "Doğru Yönlendirme", description: "Yapay zeka ile %100 doğrulukla ilgili birime atama", stat: "%100", color: "from-purple-500 to-purple-600" },
     { icon: BarChart3, title: "Performans Ölçümü", description: "Birim ve ekip bazlı detaylı analiz ve raporlama", stat: "24/7", color: "from-orange-500 to-orange-600" },
     { icon: Rocket, title: "Dijitalleşme", description: "Kurumunuzun dijital dönüşümünü hızlandırır", stat: "10X", color: "from-cyan-500 to-cyan-600" },
-    { icon: Award, title: "Ulusal Standart", description: "Türkiye genelinde kabul görmüş ortak platform", stat: "1.405", color: "from-kirmizi-500 to-kirmizi-600", darkText: true }
+    { icon: Award, title: "Ulusal Standart", description: "Türkiye genelinde kabul görmüş ortak platform", stat: "1.405", color: "from-kirmizi-600 to-kirmizi-700" }
   ]
 
   return (
@@ -43,7 +42,7 @@ export default function BenefitsSection() {
                     {isFunction ? <IconComponent /> : <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />}
                   </div>
                   <div className={`absolute top-0 right-0 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r ${benefit.color} rounded-lg md:rounded-xl shadow-lg`}>
-                    <span className={`font-bold text-base md:text-lg ${benefit.darkText ? 'text-lacivert-900' : 'text-white'}`}>{benefit.stat}</span>
+                    <span className="font-bold text-base md:text-lg text-white">{benefit.stat}</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-lacivert-900 mb-3 md:mb-4">{benefit.title}</h3>
                   <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">{benefit.description}</p>
