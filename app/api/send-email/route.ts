@@ -1,19 +1,15 @@
 ﻿import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+console.log("🔥🔥🔥 TAVIZYOK SMTP ROUTE ÇALIŞTI 🔥🔥🔥");
 
-console.log("🔥🔥🔥 TAVIZYOK SMTP ROUTE ÇALIŞIYOR 🔥🔥🔥");
-
-export async function POST(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { kurumAdi, yetkili, email, telefon, mesaj } = body;
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.zoho.eu",  // artık EU kullanıyoruz
+      host: "smtp.zoho.eu",   // Avrupa datacenter
       port: 465,
       secure: true,
       auth: {
@@ -38,10 +34,16 @@ export async function POST(request: Request) {
       `
     });
 
-    return NextResponse.json({ success: true, id: info.messageId });
+    return NextResponse.json({
+      success: true,
+      id: info.messageId
+    });
 
   } catch (err: any) {
     console.error("❌ Mail HATASI:", err);
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: err.message },
+      { status: 500 }
+    );
   }
 }
