@@ -1,6 +1,7 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['leaflet', 'react-leaflet'],
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -9,6 +10,10 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
+  },
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), { canvas: 'canvas' }];
+    return config;
   },
 }
 
