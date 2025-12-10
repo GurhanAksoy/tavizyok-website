@@ -1,50 +1,41 @@
 ﻿import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const { kurumAdi, yetkili, email, telefon, mesaj } = await req.json();
+    const body = await request.json();
+    const { kurumAdi, yetkili, email, telefon, mesaj } = body;
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.zoho.eu",          // EU !!!
-      port: 587,                     // OAuth2 = 587
-      secure: false,
+      host: "smtp.zoho.eu",  // artık EU kullanıyoruz
+      port: 465,
+      secure: true,
       auth: {
-        type: "OAuth2",
-        user: process.env.ZOHO_FROM,
-        clientId: process.env.ZOHO_CLIENT_ID,
-        clientSecret: process.env.ZOHO_CLIENT_SECRET,
-        refreshToken: process.env.ZOHO_REFRESH_TOKEN,
-      },
+        user: process.env.ZOHO_EMAIL,
+        pass: process.env.ZOHO_PASSWORD
+      }
     });
 
-    const mailOptions = {
-      from: `Taviz Yok Website <${process.env.ZOHO_FROM}>`,
-      to: process.env.ZOHO_FROM,
+    const info = await transporter.sendMail({
+      from: `Taviz Yok <${process.env.ZOHO_EMAIL}>`,
+      to: process.env.ZOHO_EMAIL,
+      replyTo: email,
       subject: kurumAdi
         ? `Yeni Demo Talebi - ${kurumAdi}`
         : `Yeni İletişim - ${yetkili}`,
       html: `
-        <h2>Yeni İletişim Talebi</h2>
+        <h2>Yeni iletişim talebi</h2>
         <p><b>Ad Soyad:</b> ${yetkili}</p>
-        <p><b>Email:</b> ${email}</p>
+        <p><b>E-posta:</b> ${email}</p>
         <p><b>Telefon:</b> ${telefon}</p>
         <p><b>Mesaj:</b><br>${mesaj}</p>
-      `,
-      replyTo: email,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
+      `
+    });
 
     return NextResponse.json({ success: true, id: info.messageId });
+
   } catch (err: any) {
     console.error("❌ Mail HATASI:", err);
-    return NextResponse.json(
-      {
-        success: false,
-        error: err.message,
-      },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
