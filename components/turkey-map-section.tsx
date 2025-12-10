@@ -1,37 +1,127 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import dynamic from "next/dynamic"
 import { MapPin, TrendingUp, Users, CheckCircle } from "lucide-react"
 
-export default function TurkeyMapSection() {
-  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null)
+// Leaflet'i client-side only yükle (SSR problemi önlemek için)
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+)
+const GeoJSON = dynamic(
+  () => import("react-leaflet").then((mod) => mod.GeoJSON),
+  { ssr: false }
+)
 
-  // GERÇEKÇİ BÖLGESEL DEMO VERİLERİ
-  const regionData = {
-    "Marmara": { bildirim: 5234, cozulen: 4921, oran: 94, iller: ["İstanbul", "Bursa", "Kocaeli", "Tekirdağ"] },
-    "İç Anadolu": { bildirim: 2456, cozulen: 2368, oran: 96, iller: ["Ankara", "Konya", "Kayseri", "Eskişehir"] },
-    "Ege": { bildirim: 1876, cozulen: 1798, oran: 96, iller: ["İzmir", "Manisa", "Aydın", "Denizli"] },
-    "Akdeniz": { bildirim: 1544, cozulen: 1451, oran: 94, iller: ["Antalya", "Adana", "Mersin"] },
-    "Karadeniz": { bildirim: 892, cozulen: 847, oran: 95, iller: ["Samsun", "Trabzon", "Ordu"] },
-    "Doğu Anadolu": { bildirim: 567, cozulen: 516, oran: 91, iller: ["Erzurum", "Malatya", "Van"] },
-    "Güneydoğu Anadolu": { bildirim: 1199, cozulen: 1103, oran: 92, iller: ["Gaziantep", "Şanlıurfa", "Diyarbakır"] }
+export default function TurkeyMapSection() {
+  const [geoData, setGeoData] = useState<any>(null)
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  // GERÇEKÇİ DEMO VERİLERİ
+  const cityData: Record<string, { bildirim: number; cozulen: number; oran: number; ortalamaSure: string }> = {
+    "İstanbul": { bildirim: 2847, cozulen: 2654, oran: 93, ortalamaSure: "18sa" },
+    "Ankara": { bildirim: 1523, cozulen: 1445, oran: 95, ortalamaSure: "16sa" },
+    "İzmir": { bildirim: 1289, cozulen: 1221, oran: 95, ortalamaSure: "17sa" },
+    "Bursa": { bildirim: 687, cozulen: 651, oran: 95, ortalamaSure: "15sa" },
+    "Antalya": { bildirim: 624, cozulen: 593, oran: 95, ortalamaSure: "19sa" },
+    "Adana": { bildirim: 531, cozulen: 498, oran: 94, ortalamaSure: "20sa" },
+    "Konya": { bildirim: 478, cozulen: 459, oran: 96, ortalamaSure: "14sa" },
+    "Gaziantep": { bildirim: 445, cozulen: 418, oran: 94, ortalamaSure: "21sa" },
+    "Şanlıurfa": { bildirim: 398, cozulen: 366, oran: 92, ortalamaSure: "23sa" },
+    "Kocaeli": { bildirim: 412, cozulen: 395, oran: 96, ortalamaSure: "15sa" },
+    "Mersin": { bildirim: 389, cozulen: 364, oran: 94, ortalamaSure: "19sa" },
+    "Diyarbakır": { bildirim: 356, cozulen: 325, oran: 91, ortalamaSure: "24sa" },
+    "Kayseri": { bildirim: 312, cozulen: 299, oran: 96, ortalamaSure: "14sa" },
+    "Eskişehir": { bildirim: 289, cozulen: 278, oran: 96, ortalamaSure: "13sa" },
+    "Samsun": { bildirim: 267, cozulen: 253, oran: 95, ortalamaSure: "16sa" }
   }
 
-  const getRegionColor = (region: string) => {
-    const bildirim = regionData[region as keyof typeof regionData]?.bildirim || 0
-    if (bildirim > 4000) return "#dc2626"
-    if (bildirim > 2000) return "#ef4444"
-    if (bildirim > 1500) return "#f97316"
-    if (bildirim > 1000) return "#fb923c"
-    if (bildirim > 500) return "#fbbf24"
+  useEffect(() => {
+    setMounted(true)
+    
+    // Leaflet CSS yükle
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    document.head.appendChild(link)
+    
+    // GeoJSON yükle
+    fetch("https://raw.githubusercontent.com/cihadturhan/tr-geojson/master/geo/tr-cities-utf8.json")
+      .then(res => res.json())
+      .then(data => setGeoData(data))
+      .catch(err => console.error("GeoJSON yükleme hatası:", err))
+  }, [])
+
+  const getColor = (cityName: string) => {
+    const data = cityData[cityName]
+    if (!data) return "#3b82f6"
+    
+    const bildirim = data.bildirim
+    if (bildirim > 2000) return "#dc2626"
+    if (bildirim > 1000) return "#ef4444"
+    if (bildirim > 500) return "#f97316"
+    if (bildirim > 300) return "#fb923c"
+    if (bildirim > 150) return "#fbbf24"
     return "#34d399"
   }
 
+  const style = (feature: any) => {
+    const cityName = feature.properties?.name || ""
+    return {
+      fillColor: getColor(cityName),
+      weight: 1,
+      opacity: 1,
+      color: "#1e3a8a",
+      fillOpacity: hoveredCity === cityName ? 1 : 0.7
+    }
+  }
+
+  const onEachFeature = (feature: any, layer: any) => {
+    const cityName = feature.properties?.name || ""
+    const data = cityData[cityName]
+
+    layer.on({
+      mouseover: () => {
+        setHoveredCity(cityName)
+        layer.setStyle({ weight: 3, color: "#ffffff", fillOpacity: 1 })
+      },
+      mouseout: () => {
+        setHoveredCity(null)
+        layer.setStyle({ weight: 1, color: "#1e3a8a", fillOpacity: 0.7 })
+      }
+    })
+
+    if (data) {
+      layer.bindTooltip(
+        `<div style="padding: 12px; font-family: system-ui;">
+          <div style="font-weight: bold; font-size: 18px; color: #1e3a8a; margin-bottom: 10px;">${cityName}</div>
+          <div style="font-size: 14px; line-height: 1.8;">
+            <div><span style="color: #6b7280;">Bildirim:</span> <strong>${data.bildirim.toLocaleString('tr-TR')}</strong></div>
+            <div><span style="color: #6b7280;">Çözülen:</span> <strong style="color: #16a34a;">${data.cozulen.toLocaleString('tr-TR')}</strong></div>
+            <div><span style="color: #6b7280;">Başarı:</span> <strong style="color: #2563eb;">%${data.oran}</strong></div>
+            <div><span style="color: #6b7280;">Ort. Süre:</span> <strong style="color: #7c3aed;">${data.ortalamaSure}</strong></div>
+          </div>
+        </div>`,
+        { permanent: false, direction: "top", className: "custom-tooltip", opacity: 0.95 }
+      )
+    }
+  }
+
   const mapStats = [
-    { icon: MapPin, title: "Aktif Bildirim", value: "13.8K", description: "Türkiye genelinde işlemde olan bildirimler", color: "from-red-500 to-red-600" },
+    { icon: MapPin, title: "Aktif Bildirim", value: "11.2K", description: "Türkiye genelinde işlemde olan bildirimler", color: "from-red-500 to-red-600" },
     { icon: TrendingUp, title: "Çözüm Oranı", value: "%94.3", description: "Ulusal ortalama çözüm başarı oranı", color: "from-green-500 to-green-600" },
     { icon: Users, title: "Aktif Personel", value: "8.7K", description: "Şu an sistemde aktif kurum çalışanları", color: "from-blue-500 to-blue-600" }
   ]
+
+  if (!mounted || !geoData) {
+    return (
+      <section className="py-16 md:py-24 bg-gradient-to-br from-lacivert-900 via-lacivert-800 to-blue-900">
+        <div className="container mx-auto px-4"><div className="text-center text-white text-xl">Harita yükleniyor...</div></div>
+      </section>
+    )
+  }
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-lacivert-900 via-lacivert-800 to-blue-900 relative overflow-hidden">
@@ -50,56 +140,13 @@ export default function TurkeyMapSection() {
         </div>
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
           
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-10 relative group">
-            <svg 
-              viewBox="0 0 800 600" 
-              className="w-full h-auto"
-              style={{ filter: 'drop-shadow(0 10px 40px rgba(0,0,0,0.3))' }}
-            >
-              <g onMouseEnter={() => setHoveredRegion("Marmara")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 150 120 L 250 100 L 280 150 L 260 180 L 200 190 L 160 160 Z" fill={hoveredRegion === "Marmara" ? "#dc2626" : getRegionColor("Marmara")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Marmara" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="210" y="145" fill="white" fontSize="14" fontWeight="bold" textAnchor="middle">Marmara</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("İç Anadolu")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 260 180 L 400 160 L 480 220 L 460 300 L 350 310 L 280 270 L 250 220 Z" fill={hoveredRegion === "İç Anadolu" ? "#dc2626" : getRegionColor("İç Anadolu")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "İç Anadolu" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="370" y="235" fill="white" fontSize="14" fontWeight="bold" textAnchor="middle">İç Anadolu</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("Ege")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 100 200 L 200 190 L 250 220 L 230 290 L 150 310 L 90 270 Z" fill={hoveredRegion === "Ege" ? "#dc2626" : getRegionColor("Ege")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Ege" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="170" y="250" fill="white" fontSize="14" fontWeight="bold" textAnchor="middle">Ege</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("Akdeniz")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 150 310 L 280 270 L 380 310 L 420 380 L 350 420 L 200 400 L 130 360 Z" fill={hoveredRegion === "Akdeniz" ? "#dc2626" : getRegionColor("Akdeniz")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Akdeniz" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="280" y="355" fill="white" fontSize="14" fontWeight="bold" textAnchor="middle">Akdeniz</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("Karadeniz")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 280 60 L 500 50 L 580 90 L 550 140 L 400 160 L 280 150 Z" fill={hoveredRegion === "Karadeniz" ? "#dc2626" : getRegionColor("Karadeniz")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Karadeniz" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="420" y="105" fill="white" fontSize="14" fontWeight="bold" textAnchor="middle">Karadeniz</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("Doğu Anadolu")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 550 140 L 680 160 L 720 240 L 680 320 L 560 300 L 480 220 Z" fill={hoveredRegion === "Doğu Anadolu" ? "#dc2626" : getRegionColor("Doğu Anadolu")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Doğu Anadolu" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="600" y="230" fill="white" fontSize="13" fontWeight="bold" textAnchor="middle">Doğu</text>
-                <text x="600" y="250" fill="white" fontSize="13" fontWeight="bold" textAnchor="middle">Anadolu</text>
-              </g>
-              <g onMouseEnter={() => setHoveredRegion("Güneydoğu Anadolu")} onMouseLeave={() => setHoveredRegion(null)} className="cursor-pointer transition-all duration-300">
-                <path d="M 460 300 L 560 300 L 620 360 L 580 420 L 480 410 L 420 380 L 380 310 Z" fill={hoveredRegion === "Güneydoğu Anadolu" ? "#dc2626" : getRegionColor("Güneydoğu Anadolu")} stroke="#1e3a8a" strokeWidth="2" opacity={hoveredRegion === "Güneydoğu Anadolu" ? "1" : "0.85"} className="transition-all duration-300" />
-                <text x="500" y="350" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">G.Doğu</text>
-                <text x="500" y="370" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">Anadolu</text>
-              </g>
-            </svg>
-
-            {hoveredRegion && (
-              <div className="absolute top-4 right-4 bg-white rounded-xl shadow-2xl p-4 min-w-[220px] border-2 border-kirmizi-600 z-50 animate-scale-in">
-                <div className="text-lacivert-900 font-bold text-lg mb-3">{hoveredRegion}</div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-gray-600">Bildirim:</span><span className="font-semibold">{regionData[hoveredRegion as keyof typeof regionData].bildirim.toLocaleString('tr-TR')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-600">Çözülen:</span><span className="font-semibold text-green-600">{regionData[hoveredRegion as keyof typeof regionData].cozulen.toLocaleString('tr-TR')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-600">Başarı:</span><span className="font-semibold text-blue-600">%{regionData[hoveredRegion as keyof typeof regionData].oran}</span></div>
-                  <div className="mt-3 pt-3 border-t border-gray-200"><div className="text-xs text-gray-500 mb-1">Başlıca İller:</div><div className="text-xs text-gray-700 font-medium">{regionData[hoveredRegion as keyof typeof regionData].iller.join(", ")}</div></div>
-                </div>
-              </div>
-            )}
-
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8">
+            <div className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <MapContainer center={[39.0, 35.0]} zoom={6} style={{ height: "100%", width: "100%" }} zoomControl={true} scrollWheelZoom={false} dragging={true}>
+                <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />
+              </MapContainer>
+            </div>
+            
             <div className="mt-6 flex items-center justify-center gap-3 flex-wrap text-xs">
               <div className="flex items-center space-x-1.5"><div className="w-3 h-3 rounded bg-[#dc2626]" /><span className="text-white/80">Çok Yüksek</span></div>
               <div className="flex items-center space-x-1.5"><div className="w-3 h-3 rounded bg-[#ef4444]" /><span className="text-white/80">Yüksek</span></div>
@@ -107,8 +154,7 @@ export default function TurkeyMapSection() {
               <div className="flex items-center space-x-1.5"><div className="w-3 h-3 rounded bg-[#fbbf24]" /><span className="text-white/80">Düşük</span></div>
               <div className="flex items-center space-x-1.5"><div className="w-3 h-3 rounded bg-[#34d399]" /><span className="text-white/80">Çok Düşük</span></div>
             </div>
-
-            <div className="mt-4 text-center"><div className="text-white/60 text-xs md:text-sm"><p className="mb-2">🗺️ 7 Coğrafi Bölge - Bölgelerin üzerine gelin</p><p className="font-semibold text-white/80">81 İl • 922 İlçe • 1.405 Belediye</p></div></div>
+            <div className="mt-4 text-center"><div className="text-white/60 text-xs md:text-sm"><p className="mb-2">🗺️ 81 İl - İllerin üzerine gelin</p><p className="font-semibold text-white/80">81 İl • 922 İlçe • 1.405 Belediye</p></div></div>
           </div>
 
           <div className="space-y-4 md:space-y-6">
@@ -125,11 +171,20 @@ export default function TurkeyMapSection() {
             })}
             <div className="bg-gradient-to-r from-kirmizi-600 to-kirmizi-700 rounded-xl md:rounded-2xl p-5 md:p-6 border border-white/20">
               <div className="flex items-center space-x-3 mb-3"><CheckCircle className="w-6 h-6 text-white" /><h4 className="text-white font-bold text-lg">Demo Veriler</h4></div>
-              <p className="text-white/90 text-sm leading-relaxed">Gösterilen tüm veriler gerçekçi demo değerleridir. Canlı sistemde gerçek zamanlı güncel bilgiler görüntülenir.</p>
+              <p className="text-white/90 text-sm leading-relaxed">Gösterilen tüm veriler gerçekçi demo değerleridir. Canlı sistemde Supabase'den gerçek zamanlı güncel bilgiler görüntülen
+
+ir.</p>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .leaflet-container { background: transparent !important; }
+        .leaflet-control-attribution { display: none !important; }
+        .custom-tooltip { background: white !important; border: 2px solid #dc2626 !important; border-radius: 12px !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; }
+        .leaflet-tooltip-top:before { border-top-color: #dc2626 !important; }
+      `}</style>
     </section>
   )
 }
