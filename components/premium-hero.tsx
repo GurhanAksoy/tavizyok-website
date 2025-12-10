@@ -5,9 +5,9 @@ import { ArrowRight, Play } from "lucide-react"
 export default function PremiumHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-lacivert-900 via-lacivert-800 to-lacivert-900">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-kirmizi-600 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl opacity-30 animate-pulse" style={{animationDelay: '1s'}} />
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 w-80 h-80 bg-kirmizi-600 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl opacity-60 animate-pulse" style={{animationDelay: '1s'}} />
       </div>
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -60,7 +60,7 @@ export default function PremiumHero() {
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+        <div className="w-8 h-12 border-2 border-kirmizi-600 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-1.5 bg-white rounded-full" />
         </div>
       </div>
