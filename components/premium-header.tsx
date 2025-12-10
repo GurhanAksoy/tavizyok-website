@@ -49,8 +49,8 @@ export default function PremiumHeader() {
         setError(data.error || "Mail gönderilemedi. Lütfen tekrar deneyin.")
         setTimeout(() => setError(""), 5000)
       }
-    } catch (err) {
-      console.error("Error:", err)
+    } catch (error: any) {
+      console.error("Error:", error)
       setError("Bağlantı hatası. Lütfen tekrar deneyin.")
       setTimeout(() => setError(""), 5000)
     } finally {
@@ -63,6 +63,7 @@ export default function PremiumHeader() {
       <header className="fixed top-0 w-full z-50 bg-krem/95 backdrop-blur-md shadow-lg border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
+            {/* LOGO */}
             <div className="flex items-center space-x-2 md:space-x-4">
               <img src="/logo.png" alt="Taviz Yok" className="w-16 h-16 md:w-24 md:h-24" />
               <div className="hidden sm:block">
@@ -70,33 +71,44 @@ export default function PremiumHeader() {
               </div>
             </div>
 
+            {/* MOBILE MENU BUTTON */}
             <button 
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="md:hidden p-2 text-lacivert-900"
+              className="md:hidden p-2 text-lacivert-900 z-50"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            <div className="hidden md:flex items-center space-x-3">
+            {/* DESKTOP BUTTONS */}
+            <div className="hidden md:flex items-center gap-3 relative z-50">
+              {/* E-POSTA GÖNDER BUTTON */}
               <button 
                 type="button"
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
+                onClick={() => {
+                  console.log('🔥 E-POSTA BUTTON TIKLANDI!')
                   setShowEmailModal(true)
                 }}
-                className="flex items-center space-x-2 text-kirmizi-600 hover:text-kirmizi-700 transition-colors font-semibold group"
+                className="flex items-center space-x-2 px-4 py-2 text-kirmizi-600 hover:text-white hover:bg-kirmizi-600 rounded-lg transition-all font-semibold border-2 border-kirmizi-600"
               >
-                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <Mail className="w-4 h-4" />
                 <span className="text-sm">E-posta Gönder</span>
               </button>
               
-              <a href="/kurum-giris" className="flex items-center space-x-2 px-4 lg:px-5 py-2 lg:py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-all hover:scale-105 shadow-lg">
+              {/* KURUM GİRİŞİ */}
+              <a 
+                href="/kurum-giris" 
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-all shadow-lg"
+              >
                 <Building2 className="w-4 h-4" />
                 <span>Kurum Girişi</span>
               </a>
-              <a href="/merkez-panel-giris" className="flex items-center space-x-2 px-4 lg:px-5 py-2 lg:py-2.5 bg-kirmizi-600 hover:bg-kirmizi-700 text-white rounded-lg font-semibold text-sm transition-all hover:scale-105 shadow-lg">
+              
+              {/* MERKEZİ PANEL */}
+              <a 
+                href="/merkez-panel-giris" 
+                className="flex items-center space-x-2 px-4 py-2 bg-kirmizi-600 hover:bg-kirmizi-700 text-white rounded-lg font-semibold text-sm transition-all shadow-lg"
+              >
                 <BarChart3 className="w-4 h-4" />
                 <span>Merkezi Panel</span>
               </a>
@@ -104,18 +116,18 @@ export default function PremiumHeader() {
           </div>
         </div>
 
+        {/* MOBILE MENU */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="container mx-auto px-4 py-4 space-y-3">
               <button 
                 type="button"
-                onClick={(e) => { 
-                  e.preventDefault()
-                  e.stopPropagation()
+                onClick={() => { 
+                  console.log('🔥 MOBILE E-POSTA BUTTON TIKLANDI!')
                   setShowEmailModal(true)
                   setMobileMenuOpen(false)
                 }} 
-                className="w-full flex items-center space-x-2 px-4 py-3 text-kirmizi-600 hover:bg-kirmizi-50 rounded-lg transition-colors font-semibold"
+                className="w-full flex items-center space-x-2 px-4 py-3 text-kirmizi-600 hover:bg-kirmizi-50 rounded-lg transition-colors font-semibold border-2 border-kirmizi-600"
               >
                 <Mail className="w-5 h-5" />
                 <span>E-posta Gönder</span>
@@ -133,21 +145,20 @@ export default function PremiumHeader() {
         )}
       </header>
 
+      {/* EMAIL MODAL */}
       {showEmailModal && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4" 
-          onClick={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            if (!loading) setShowEmailModal(false)
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] flex items-center justify-center p-4" 
+          onClick={() => {
+            if (!loading) {
+              console.log('🔥 MODAL BACKDROP TIKLANDI - KAPANIYOR')
+              setShowEmailModal(false)
+            }
           }}
         >
           <div 
-            className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl animate-scale-in" 
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-            }}
+            className="bg-white rounded-3xl p-6 md:p-10 max-w-lg w-full shadow-2xl relative z-[1000]" 
+            onClick={(e) => e.stopPropagation()}
           >
             {submitted ? (
               <div className="text-center py-12">
@@ -168,9 +179,8 @@ export default function PremiumHeader() {
                   </div>
                   <button 
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      e.stopPropagation()
+                    onClick={() => {
+                      console.log('🔥 KAPAT BUTTON TIKLANDI')
                       setShowEmailModal(false)
                     }} 
                     className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-lg" 
@@ -181,7 +191,7 @@ export default function PremiumHeader() {
                 </div>
 
                 {error && (
-                  <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl animate-scale-in">
+                  <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl">
                     <div className="flex items-center space-x-3">
                       <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
                       <div>
