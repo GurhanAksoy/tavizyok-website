@@ -1,6 +1,12 @@
 ﻿import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+console.log("🔥🔥🔥 TAVIZYOK SMTP ROUTE ÇALIŞIYOR 🔥🔥🔥");
+
+export async function POST(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
