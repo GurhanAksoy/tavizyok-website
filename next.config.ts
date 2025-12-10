@@ -11,10 +11,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config) => {
-    config.externals = [...(config.externals || []), { canvas: 'canvas' }];
-    return config;
-  },
+  // Turbopack için boş config (uyarıyı susturur)
+  turbopack: {},
 }
 
 export default nextConfig
