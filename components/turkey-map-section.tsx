@@ -171,9 +171,8 @@ export default function TurkeyMapSection() {
             })}
             <div className="bg-gradient-to-r from-kirmizi-600 to-kirmizi-700 rounded-xl md:rounded-2xl p-5 md:p-6 border border-white/20">
               <div className="flex items-center space-x-3 mb-3"><CheckCircle className="w-6 h-6 text-white" /><h4 className="text-white font-bold text-lg">Demo Veriler</h4></div>
-              <p className="text-white/90 text-sm leading-relaxed">Gösterilen tüm veriler gerçekçi demo değerleridir. Canlı sistemde Supabase'den gerçek zamanlı güncel bilgiler görüntülen
-
-ir.</p>
+              <p className="text-white/90 text-sm leading-relaxed">Gösterilen tüm veriler gerçekçi demo değerleridir. Canlı sistemde gerçek zamanlı güncel bilgiler görüntülenir.
+	    </p>
             </div>
           </div>
         </div>
