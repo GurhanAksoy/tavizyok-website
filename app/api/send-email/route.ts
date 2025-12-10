@@ -6,7 +6,11 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { kurumAdi, yetkili, email, telefon, mesaj } = body
 
-    console.log("📧 Mail gönderiliyor...", { kurumAdi, yetkili, email })
+    console.log("📧 Mail gönderme isteği alındı:", { kurumAdi, yetkili, email })
+
+    // 🔥 ZOHO ENV DEBUG
+    console.log("ZOHO_DEBUG_EMAIL:", process.env.ZOHO_EMAIL)
+    console.log("ZOHO_DEBUG_PASSWORD:", process.env.ZOHO_PASSWORD)
 
     const transporter = nodemailer.createTransport({
       host: "smtp.zoho.com",
@@ -50,19 +54,19 @@ export async function POST(request: Request) {
     }
 
     const info = await transporter.sendMail(mailOptions)
-    
+
     console.log("✅ Mail başarıyla gönderildi:", info.messageId)
 
-    return NextResponse.json({ 
-      success: true, 
-      messageId: info.messageId 
+    return NextResponse.json({
+      success: true,
+      messageId: info.messageId
     })
 
   } catch (error: any) {
     console.error("❌ Mail gönderme hatası:", error)
-    return NextResponse.json({ 
-      success: false, 
-      error: error.message || "Mail gönderilemedi" 
+    return NextResponse.json({
+      success: false,
+      error: error.message || "Mail gönderilemedi"
     }, { status: 500 })
   }
 }
