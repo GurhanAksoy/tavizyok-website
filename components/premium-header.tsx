@@ -78,7 +78,7 @@ export default function PremiumHeader() {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-3">
               <button 
                 type="button"
                 onClick={(e) => {
@@ -91,9 +91,7 @@ export default function PremiumHeader() {
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">E-posta Gönder</span>
               </button>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-3">
+              
               <a href="/kurum-giris" className="flex items-center space-x-2 px-4 lg:px-5 py-2 lg:py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-all hover:scale-105 shadow-lg">
                 <Building2 className="w-4 h-4" />
                 <span>Kurum Girişi</span>
