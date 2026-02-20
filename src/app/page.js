@@ -74,12 +74,17 @@ export default function Home() {
               { num: '%35', label: 'İhbar Hattı' },
               { num: '100%', label: 'Anonim Güvence' },
               { num: '7/24', label: 'Aktif Hat' },
-            ].map((s, i) => (
-              <div key={i} className={`text-center px-4 py-2 ${i === 0 ? \'border-r border-b md:border-b-0 border-red-500\' : i === 1 ? \'border-b md:border-b-0 md:border-r border-red-500\' : i === 2 ? \'border-r border-red-500\' : \'\'}}`}>
+            ].map((s, i) => {
+              const borderClass = i === 0 ? 'border-r border-b md:border-b-0 border-red-500'
+                : i === 1 ? 'border-b md:border-b-0 md:border-r border-red-500'
+                : i === 2 ? 'border-r border-red-500' : '';
+              return (
+              <div key={i} className={`text-center px-4 py-2 ${borderClass}`}>
                 <div className="text-2xl sm:text-3xl font-bold mb-0.5">{s.num}</div>
                 <div className="text-xs text-red-100 uppercase tracking-wider">{s.label}</div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
