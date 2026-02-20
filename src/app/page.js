@@ -21,7 +21,7 @@ function ShareButtons() {
 
   return (
     <div className="mt-8 pt-6 border-t border-white/20">
-      <p className="text-white/75 text-sm font-medium mb-4 text-center">📣 Platformumuzu arkadaşlarınla paylaş</p>
+      <p className="text-white/75 text-sm font-medium mb-4 text-center">📣 Platformumuzu paylaşın </p>
       <div className="flex flex-wrap justify-center gap-3">
         <a href={`https://wa.me/?text=${encodeURIComponent(SHARE_TEXT + '\n' + SITE_URL)}`} target="_blank" rel="noopener noreferrer"
           className="flex items-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white text-sm font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
