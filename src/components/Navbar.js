@@ -37,8 +37,8 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-base font-bold leading-tight">
+            <div className="flex-col hidden sm:flex">
+              <span className="text-sm font-bold leading-tight">
                 <span className="text-gray-900">Vatandaş Haberciliği</span>
                 <span className="text-gray-600"> & </span>
                 <span className="text-red-600">İhbar Platformu</span>

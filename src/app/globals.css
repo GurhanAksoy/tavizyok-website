@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f5f0e8;
-  --accent: #c8102e;
-  --accent-hover: #e8192e;
+  --background: #fafafa;
+  --foreground: #111111;
+  --accent: #dc2626;
+  --accent-hover: #b91c1c;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -14,7 +15,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Font page.js içinde yönetiliyor (Playfair Display + DM Sans) */
+  font-family: var(--font-family);
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -22,18 +23,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Link — dark temada nötr, renkli linkleri page.js yönetiyor */
+/* Link styles */
 a {
-  color: inherit;
+  color: var(--accent);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
-/* Button base — page.js kendi buton stillerini inline tanımlıyor */
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Button styles */
 button {
   background-color: var(--accent);
   color: white;
@@ -44,65 +50,74 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 6px rgba(200, 16, 46, 0.2);
+  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
 }
 
 button:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(200, 16, 46, 0.35);
+  box-shadow: 0 6px 12px rgba(220, 38, 38, 0.3);
 }
 
 button:active {
   transform: translateY(0);
 }
 
-/* Dark scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c8102e;
+  background: #94a3b8;
 }
 
-/* Selection */
+/* Selection color */
 ::selection {
-  background-color: rgba(200, 16, 46, 0.3);
-  color: #f5f0e8;
+  background-color: #fecaca;
+  color: #991b1b;
 }
 
 ::-moz-selection {
-  background-color: rgba(200, 16, 46, 0.3);
-  color: #f5f0e8;
+  background-color: #fecaca;
+  color: #991b1b;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
 }
 
-/* Accessibility */
+/* Focus styles for accessibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #c8102e;
+  outline: 3px solid #fca5a5;
   outline-offset: 2px;
 }
 
+/* Print styles */
 @media print {
-  nav { display: none; }
+  nav {
+    display: none;
+  }
 }
