@@ -1,313 +1,412 @@
 'use client';
-
 import Image from 'next/image';
+import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#fafafa]">
-
-      {/* ── HERO ── */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:pb-20">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
-            {/* Sol: Metin */}
-            <div className="flex-1 text-center lg:text-left">
-              <span className="inline-block text-xs font-semibold tracking-widest uppercase text-red-600 mb-4 bg-red-50 px-3 py-1.5 rounded-full">
-                Vatandaş Haberciliği Platformu
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5">
-                Gördüğünüzü<br />
-                <span className="text-red-600">Belgeleyin.</span>
-              </h1>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-                Toplumu ilgilendiren her olay, her haksızlık, her ihlal — WhatsApp üzerinden anonim olarak iletin. Editör ekibimiz değerlendirsin, ilgili yerlere ulaşsın.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <a
-                  href="https://wa.me/905304066686"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
-                >
-                  <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Haber veya Video Gönder
-                </a>
-                <a
-                  href="https://wa.me/905304066686"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-red-50 text-red-600 font-semibold px-7 py-3.5 rounded-xl border-2 border-red-200 hover:border-red-400 transition-all duration-200 text-sm sm:text-base"
-                >
-                  Haksızlık Bildir
-                </a>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start">
-                {['Anonim', 'KVKK Uyumlu', 'Editörlük Güvencesi', '7/24 Aktif'].map((t) => (
-                  <span key={t} className="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full font-medium">{t}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Sağ: Logo */}
-            <div className="shrink-0 flex items-center justify-center">
-              <div className="w-40 h-40 sm:w-52 sm:h-52 lg:w-60 lg:h-60 relative">
-                <Image
-                  src="/logo.png"
-                  alt="TAVİZ YOK"
-                  fill
-                  className="object-contain drop-shadow-xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 font-sans">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-red-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
         </div>
-      </section>
 
-      {/* ── İSTATİSTİKLER ── */}
-      <section className="bg-red-600 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-            {[
-              { num: '%65', label: 'Vatandaş Haberciliği' },
-              { num: '%35', label: 'İhbar Hattı' },
-              { num: '100%', label: 'Anonim Güvence' },
-              { num: '7/24', label: 'Aktif Hat' },
-            ].map((s, i) => {
-              const borderClass = i === 0 ? 'border-r border-b md:border-b-0 border-red-500'
-                : i === 1 ? 'border-b md:border-b-0 md:border-r border-red-500'
-                : i === 2 ? 'border-r border-red-500' : '';
-              return (
-              <div key={i} className={`text-center px-4 py-2 ${borderClass}`}>
-                <div className="text-2xl sm:text-3xl font-bold mb-0.5">{s.num}</div>
-                <div className="text-xs text-red-100 uppercase tracking-wider">{s.label}</div>
-              </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── VATANDAŞ HABERCİLİĞİ (ANA HİZMET) ── */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-
-          {/* Başlık */}
-          <div className="mb-10 sm:mb-12">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-red-600 mb-3 bg-red-50 px-3 py-1.5 rounded-full">
-              Ana Hizmet
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-              Vatandaş Haberciliği
-            </h2>
-            <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-2xl">
-              Toplumu ilgilendiren her gelişmeyi, yerel sorunu, kamu ihlalini anonim ve güvenli biçimde iletin.
-            </p>
+        <div className="flex flex-col items-center justify-center text-center px-4 py-20 md:py-28 relative z-10">
+          {/* Logo with subtle animation effect */}
+          <div className="mb-8 transform hover:scale-105 transition-transform duration-300">
+            <Image 
+              src="/logo.png" 
+              alt="TAVİZ YOK Logo" 
+              width={280} 
+              height={280} 
+              className="drop-shadow-2xl" 
+              priority
+            />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
-
-            {/* Ana kart */}
-            <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-200 hover:border-red-200 hover:shadow-md transition-all duration-200 md:row-span-2">
-              <div className="w-11 h-11 bg-red-100 rounded-xl flex items-center justify-center mb-5">
-                <span className="text-2xl">📰</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Gördüğünüzü Gönderin</h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                Kameranız ve WhatsApp hattımız yeterli. Trafik ihlalinden çevre kirliliğine, kamu hizmeti sorunlarından sosyal olaylara kadar her şeyi iletin.
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  { icon: '🎥', title: 'Haber Değerli İçerik', desc: 'Trafik, çevre, altyapı, sosyal olaylar, yerel sorunlar' },
-                  { icon: '✂️', title: 'Editörlük Süreci', desc: 'Her içerik uzman ekip tarafından incelenir' },
-                  { icon: '📡', title: 'Geniş Yayın', desc: 'Sosyal medya kanallarımızda kamuoyuyla paylaşılır' },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-3 p-3.5 bg-white rounded-xl border border-gray-100">
-                    <span className="text-lg shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="font-semibold text-gray-800 text-sm">{item.title}</p>
-                      <p className="text-gray-500 text-xs mt-0.5">{item.desc}</p>
+          {/* Main Message - Bütünleşik Tasarım */}
+          <div className="text-center max-w-4xl mx-auto space-y-6 mb-12">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              Haksızlığa <span className="text-red-600">Sessiz Kalmayın</span>
+            </h1>
+            
+            {/* İhbar + Vatandaş Haberciliği Birleşik Bölüm */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-10 border border-gray-200">
+              <div className="space-y-6 text-base md:text-lg text-gray-700 leading-relaxed">
+                
+                {/* İki Ana Kategori */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* İhbar Kartı */}
+                  <div className="bg-gradient-to-br from-red-50 to-white rounded-2xl p-6 border-2 border-red-200">
+                    <div className="text-4xl mb-3 text-center">🚨</div>
+                    <h3 className="text-xl font-bold text-red-600 mb-3 text-center">İhbar Videoları</h3>
+                    <p className="text-sm text-gray-700 text-center mb-3">
+                      Hukuka, insan haklarına, hayvan haklarına ve kamu vicdanına aykırı olayları belgeleyin.
+                    </p>
+                    <div className="space-y-2 text-xs text-gray-700">
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-red-600">✓</span>
+                        <span className="font-medium">İlgili kurumlara iletilir</span>
+                      </p>
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-red-600">✓</span>
+                        <span className="font-medium">Sosyal medyada paylaşılır</span>
+                      </p>
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-red-600">✓</span>
+                        <span className="font-medium">Sürecin sonuna kadar takipçisiyiz</span>
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
-              <a
-                href="https://wa.me/905304066686"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 text-sm"
-              >
-                <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Haber Göndermek İçin Tıklayın
-              </a>
-            </div>
 
-            {/* Kategoriler */}
-            <div className="bg-gray-50 rounded-2xl p-5 sm:p-6 border border-gray-200 hover:border-red-200 hover:shadow-md transition-all duration-200">
-              <p className="text-xs font-semibold text-gray-400 tracking-widest uppercase mb-4">Kabul Edilen Konular</p>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  { icon: '🚗', label: 'Trafik' },
-                  { icon: '🌿', label: 'Çevre' },
-                  { icon: '🏗️', label: 'Altyapı' },
-                  { icon: '🐾', label: 'Hayvan Hakları' },
-                  { icon: '🏥', label: 'Sağlık' },
-                  { icon: '👥', label: 'Sosyal Olaylar' },
-                  { icon: '🏛️', label: 'Kamu Düzeni' },
-                  { icon: '📍', label: 'Yerel Sorunlar' },
-                ].map((cat) => (
-                  <div key={cat.label} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="text-sm shrink-0">{cat.icon}</span>
-                    <span className="text-xs font-medium text-gray-700">{cat.label}</span>
+                  {/* Vatandaş Haberciliği Kartı */}
+                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border-2 border-blue-200">
+                    <div className="text-4xl mb-3 text-center">📰</div>
+                    <h3 className="text-xl font-bold text-blue-600 mb-3 text-center">Vatandaş Haberciliği</h3>
+                    <p className="text-sm text-gray-700 text-center mb-3">
+                      Habere değer her türlü videoyu gönderin. Toplumu ilgilendiren olayları paylaşın.
+                    </p>
+                    <div className="space-y-2 text-xs text-gray-700">
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-blue-600">✓</span>
+                        <span className="font-medium">Editörlük sürecinden geçer</span>
+                      </p>
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-blue-600">✓</span>
+                        <span className="font-medium">Sosyal medyada yayınlanır</span>
+                      </p>
+                      <p className="flex items-center justify-center gap-2">
+                        <span className="text-blue-600">✓</span>
+                        <span className="font-medium">Geniş kitlelere ulaşır</span>
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Nasıl işler */}
-            <div className="bg-gray-50 rounded-2xl p-5 sm:p-6 border border-gray-200 hover:border-red-200 hover:shadow-md transition-all duration-200">
-              <p className="text-xs font-semibold text-gray-400 tracking-widest uppercase mb-4">Nasıl İşler?</p>
-              <div className="space-y-0">
-                {[
-                  { step: '01', label: 'Video veya bilgi WhatsApp\'a iletilir' },
-                  { step: '02', label: 'Editör ekibi içeriği inceler ve değerlendirir' },
-                  { step: '03', label: 'Onaylanan içerik yayına alınır veya kuruma iletilir' },
-                ].map((s, i) => (
-                  <div key={s.step} className={`flex gap-3 py-3.5 ${i < 2 ? 'border-b border-gray-200' : ''}`}>
-                    <span className="text-lg font-bold text-red-200 w-8 shrink-0 font-mono">{s.step}</span>
-                    <p className="text-sm text-gray-600 leading-relaxed">{s.label}</p>
+                {/* Süreç Açıklaması */}
+                <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                  <div className="flex items-center justify-center gap-3 flex-wrap text-sm md:text-base">
+                    <span className="font-semibold text-gray-900">📤 Video Gönderin</span>
+                    <span className="text-gray-400">→</span>
+                    <span className="font-semibold text-gray-900">✅ Editör İncelemesi</span>
+                    <span className="text-gray-400">→</span>
+                    <span className="font-semibold text-gray-900">📢 Yayın/İletim</span>
                   </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── İHBAR HATTI (İKİNCİL) ── */}
-      <section className="py-14 sm:py-16 bg-[#fafafa]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-
-          <div className="mb-8 sm:mb-10">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-red-600 mb-3 bg-red-50 px-3 py-1.5 rounded-full">
-              Ek Hizmet
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">İhbar ve Bildirim Hattı</h2>
-            <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-2xl">
-              Hukuki ihlaller, hayvan hakları ve trafik güvenliğine ilişkin bildirimler doğrudan yetkili kurumlara iletilir.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
-            {[
-              { icon: '⚖️', title: 'Hukuki İhlaller', desc: 'İnsan hakları ve kamu hukukuna aykırı davranışlar yetkili makamlara iletilir.', kurumlar: ['Savcılık', 'Emniyet'] },
-              { icon: '🐾', title: 'Hayvan Hakları', desc: 'Hayvan istismarı ve ihmaline dair belgeler ilgili birimlerle paylaşılır.', kurumlar: ['Belediye', 'Tarım Bakanlığı'] },
-              { icon: '🚦', title: 'Trafik ve Güvenlik', desc: 'Tehlikeli sürüş ve trafik düzeni ihlalleri Trafik Başkanlığı\'na iletilir.', kurumlar: ['Trafik Başkanlığı'] },
-            ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-200 hover:border-red-200 hover:shadow-md transition-all duration-200">
-                <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-xl">{item.icon}</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{item.desc}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.kurumlar.map((k) => (
-                    <span key={k} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{k}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Kabul edilmeyenler */}
-          <div className="mt-5 bg-white rounded-2xl p-5 sm:p-6 border border-orange-200 bg-orange-50">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="flex items-start gap-3 flex-1">
-                <div className="w-9 h-9 bg-orange-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-base">⚠️</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800 text-sm mb-1">Kabul Edilmeyen İçerikler</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">
-                    İftira, hakaret, özel hayat ihlali; yargı süreci devam eden konular; haber değeri veya yer ve zaman bilgisi yetersiz kayıtlar kabul edilmez.
+                
+                {/* Gizlilik Vurgusu */}
+                <div className="bg-red-50 rounded-2xl p-4 border-2 border-red-200">
+                  <p className="text-lg md:text-xl font-bold text-red-600 text-center">
+                    🔒 Kimliğiniz tamamen gizli kalır
                   </p>
                 </div>
               </div>
-              <a
-                href="https://wa.me/905304066686"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-xl text-sm transition-all duration-200 w-full sm:w-auto shrink-0"
-              >
-                Haksızlık Bildir
-              </a>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">
+            <a
+              href="https://wa.me/905304066686"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center px-10 py-4 bg-[#25D366] text-white text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl hover:bg-[#20BD5A] hover:scale-105 transition-all duration-300 border-2 border-[#25D366] hover:border-[#20BD5A]"
+            >
+              <span className="text-2xl mr-3">📲</span>
+              <span className="text-white">Video Gönder</span>
+              <span className="ml-2 group-hover:translate-x-1 transition-transform text-white">→</span>
+            </a>
+            
+            <a
+              href="https://wa.me/905304066686"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center px-10 py-4 bg-red-600 text-white text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl hover:bg-red-700 hover:scale-105 transition-all duration-300 border-2 border-red-600 hover:border-red-700"
+            >
+              <span className="text-2xl mr-3">🚨</span>
+              <span className="text-white">Haksızlık Bildir</span>
+              <span className="ml-2 group-hover:translate-x-1 transition-transform text-white">→</span>
+            </a>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+              <span className="text-green-600 text-lg">✓</span>
+              <span className="font-medium">KVKK Uyumlu</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+              <span className="text-green-600 text-lg">✓</span>
+              <span className="font-medium">Gizlilik Garantisi</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+              <span className="text-green-600 text-lg">✓</span>
+              <span className="font-medium">Editörlük Süreci</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+              <span className="text-green-600 text-lg">✓</span>
+              <span className="font-medium">Sosyal Medya Yayını</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* ── GİZLİLİK VE GÜVEN ── */}
-      <section className="py-14 sm:py-16 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10 sm:mb-12">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-red-600 mb-3 bg-red-50 px-3 py-1.5 rounded-full">
-              Güvencemiz
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Kimliğiniz Bizimle Güvende
+      {/* FAQ Section */}
+      <div className="px-4 sm:px-6 md:px-12 py-16 bg-gradient-to-b from-white/50 to-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              <span className="text-red-600">Merak Ettikleriniz</span>
             </h2>
+            <p className="text-gray-600 text-lg">
+              Sıkça sorulan sorulara yanıtlar
+            </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5 sm:gap-0 sm:divide-x sm:divide-gray-100">
-            {[
-              { icon: '🔒', title: 'Sıfır Kimlik Talebi', desc: 'Adınızı ya da iletişim bilgilerinizi paylaşmanız zorunlu değildir. Tamamen anonim gönderebilirsiniz.' },
-              { icon: '🛡️', title: 'KVKK Uyumu', desc: 'Tüm süreçlerimiz Kişisel Verilerin Korunması Kanunu çerçevesinde yürütülür. Bilgileriniz üçüncü taraflarla paylaşılmaz.' },
-              { icon: '📊', title: 'Süreç Takibi', desc: 'Gönderdiğiniz içeriğin hangi aşamada olduğunu öğrenebilir, yayına alınıp alınmadığından haberdar olabilirsiniz.' },
-            ].map((item, i) => (
-              <div key={item.title} className={`text-center sm:text-left p-6 sm:p-8 ${i === 1 ? 'bg-gray-50 rounded-2xl sm:rounded-none' : ''}`}>
-                <div className="w-11 h-11 bg-red-50 rounded-xl flex items-center justify-center mb-4 mx-auto sm:mx-0">
-                  <span className="text-xl">{item.icon}</span>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">📹</span>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
-            ))}
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Hangi videolar gönderilebilir?
+              </h3>
+              <div className="text-gray-700 leading-relaxed space-y-3 text-sm">
+                <div className="bg-red-50 rounded-xl p-3 border border-red-100">
+                  <p className="font-semibold text-red-600 mb-1">1. Vatandaş Haberciliği:</p>
+                  <p>Habere değer her türlü içerik (ilginç olaylar, toplumsal konular, gündem)</p>
+                </div>
+                <div className="bg-blue-50 rounded-xl p-3 border border-blue-100">
+                  <p className="font-semibold text-blue-600 mb-1">2. İhbar Videoları:</p>
+                  <p>Hukuka, insan haklarına, hayvan haklarına ve kamu vicdanına aykırı durumlar</p>
+                </div>
+                <p className="text-red-600 font-semibold pt-2 text-center">
+                  ⚠️ İftira, hakaret ve özel hayat ihlali kabul edilmez
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">⚙️</span>
+                </div>
+              </div>
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Gönderdiğim video ne işlem görür?
+              </h3>
+              <div className="text-gray-700 leading-relaxed space-y-3 text-sm">
+                <div className="flex items-start gap-3 bg-gray-50 rounded-xl p-3 border border-gray-200">
+                  <span className="text-2xl">📋</span>
+                  <div>
+                    <p className="font-semibold text-gray-900">İnceleme</p>
+                    <p className="text-xs text-gray-600">İçerik ve kalite kontrolü</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 bg-gray-50 rounded-xl p-3 border border-gray-200">
+                  <span className="text-2xl">🏛️</span>
+                  <div>
+                    <p className="font-semibold text-gray-900">İhbar Videoları</p>
+                    <p className="text-xs text-gray-600">İlgili kuruma iletilir</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 bg-gray-50 rounded-xl p-3 border border-gray-200">
+                  <span className="text-2xl">📱</span>
+                  <div>
+                    <p className="font-semibold text-gray-900">Haber İçerikleri</p>
+                    <p className="text-xs text-gray-600">Sosyal medyada yayınlanır</p>
+                  </div>
+                </div>
+                <p className="text-gray-500 text-xs pt-2 text-center italic">
+                  * Sosyal medya yayını için abone olunması gerekir
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">🔒</span>
+                </div>
+              </div>
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Kişisel bilgilerim güvende mi?
+              </h3>
+              <div className="text-gray-700 leading-relaxed text-sm space-y-3">
+                <p className="text-center">
+                  <strong className="text-green-600 text-2xl">✓ Kesinlikle evet</strong>
+                </p>
+                <p className="bg-gray-50 rounded-xl p-3 border border-gray-200">
+                  Platformumuz kişisel bilgi talep etmez ve hiçbir şekilde paylaşmaz.
+                </p>
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 text-center">
+                  <p className="font-semibold text-green-700 mb-1">KVKK Koruması</p>
+                  <p className="text-xs text-green-600">Kimliğiniz bizim için tamamen güvendedir</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">❌</span>
+                </div>
+              </div>
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Kabul edilmeyen içerikler
+              </h3>
+              <div className="text-gray-700 leading-relaxed space-y-2 text-sm">
+                <div className="flex items-start gap-2 bg-red-50 rounded-lg p-2 border border-red-100">
+                  <span className="text-red-600 font-bold mt-0.5">•</span>
+                  <span>Yargı süreci devam eden konular</span>
+                </div>
+                <div className="flex items-start gap-2 bg-red-50 rounded-lg p-2 border border-red-100">
+                  <span className="text-red-600 font-bold mt-0.5">•</span>
+                  <span>İftira ve hakaret içeren videolar</span>
+                </div>
+                <div className="flex items-start gap-2 bg-red-50 rounded-lg p-2 border border-red-100">
+                  <span className="text-red-600 font-bold mt-0.5">•</span>
+                  <span>Kamu yararı ve haber değeri taşımayan içerikler</span>
+                </div>
+                <div className="flex items-start gap-2 bg-red-50 rounded-lg p-2 border border-red-100">
+                  <span className="text-red-600 font-bold mt-0.5">•</span>
+                  <span>Yer/zaman bilgisi veya görüntü kalitesi yetersiz kayıtlar</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">🏛️</span>
+                </div>
+              </div>
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Hangi kurumlara iletiliyor?
+              </h3>
+              <p className="text-gray-700 text-sm mb-4 text-center">
+                İçeriğin konusuna göre yetkili kuruma yönlendirilir:
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="bg-blue-50 rounded-lg p-3 border border-blue-100 flex items-center gap-3">
+                  <span className="text-2xl">🚗</span>
+                  <div>
+                    <p className="font-semibold text-blue-700">Trafik</p>
+                    <p className="text-xs text-blue-600">Trafik Başkanlığı</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3 border border-blue-100 flex items-center gap-3">
+                  <span className="text-2xl">👮</span>
+                  <div>
+                    <p className="font-semibold text-blue-700">Asayiş</p>
+                    <p className="text-xs text-blue-600">Emniyet Müdürlüğü</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3 border border-blue-100 flex items-center gap-3">
+                  <span className="text-2xl">🏥</span>
+                  <div>
+                    <p className="font-semibold text-blue-700">Sağlık</p>
+                    <p className="text-xs text-blue-600">Sağlık Bakanlığı</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-gray-200 hover:border-red-300 group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="flex justify-center mb-5 relative z-10">
+                <div className="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <span className="text-4xl">👤</span>
+                </div>
+              </div>
+              <h3 className="font-bold mb-4 text-lg text-gray-900 text-center">
+                Ad-soyad belirtmek zorunlu mu?
+              </h3>
+              <div className="text-gray-700 leading-relaxed text-sm space-y-3">
+                <div className="bg-red-50 rounded-xl p-4 border-2 border-red-200 text-center">
+                  <p className="text-2xl font-bold text-red-600 mb-1">Hayır</p>
+                  <p className="text-xs text-red-600">Zorunlu değildir</p>
+                </div>
+                <p className="bg-gray-50 rounded-xl p-3 border border-gray-200 text-center">
+                  Kimlik bilgisi paylaşmanız gerekmez. Bu tamamen sizin tercihinizdir.
+                </p>
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-3 border border-purple-200 text-center">
+                  <p className="text-xs text-purple-700 font-medium">
+                    🎭 İster isimsiz, ister isimli gönderin
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 7 - Full width */}
+            <div className="bg-gradient-to-br from-red-50 via-white to-orange-50 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 p-10 border-3 border-red-300 md:col-span-2 lg:col-span-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-40 h-40 bg-red-200 rounded-full blur-3xl opacity-20"></div>
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-orange-200 rounded-full blur-3xl opacity-20"></div>
+              <div className="max-w-3xl mx-auto text-center relative z-10">
+                <div className="flex justify-center mb-5">
+                  <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center shadow-lg">
+                    <span className="text-5xl">📢</span>
+                  </div>
+                </div>
+                <h3 className="font-bold mb-4 text-2xl text-gray-900">
+                  Bildirim sonrası bilgi alabiliyor muyum?
+                </h3>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-red-200">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-3">
+                    <strong className="text-green-600 text-2xl">✓ Evet, kesinlikle!</strong>
+                  </p>
+                  <p className="text-gray-700 text-base">
+                    Gönderdiğiniz içeriklerle ilgili düzenli olarak bilgilendirilirsiniz.
+                  </p>
+                  <p className="text-gray-600 text-sm mt-3 bg-gray-50 rounded-lg p-3 inline-block">
+                    📊 Videonuzun hangi aşamada olduğunu ve ne zaman yayınlandığını öğrenebilirsiniz
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* ── FINAL CTA ── */}
-      <section className="bg-gray-900 text-white py-14 sm:py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Her Saniye Önemlidir
+      {/* Final CTA Section */}
+      <div className="bg-gradient-to-r from-red-600 via-red-700 to-red-600 text-white py-12 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Tanık olduğunuz her önemli anı paylaşın
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto">
-            Tanık olduğunuz önemli anı belgeleyin ve iletin. Editör ekibimiz değerlendirsin, hak ettiği yere ulaşsın.
+          <p className="text-base md:text-lg mb-6 opacity-95">
+            Haksızlık mı gördünüz? Hayvan hakları ihlali mi? Habere değer bir olay mı yaşandı?<br />
+            <strong>Vatandaş haberciliği</strong> ile birlikte sesimizi yükseltelim.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="https://wa.me/905304066686"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base"
-            >
-              <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Haber veya Video Gönder
-            </a>
-            <a
-              href="https://wa.me/905304066686"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl border-2 border-white/30 hover:border-white/60 transition-all duration-200 text-sm sm:text-base"
-            >
-              Haksızlık Bildir
-            </a>
-          </div>
+          <a
+            href="https://wa.me/905304066686"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 bg-white text-red-600 text-base md:text-lg font-bold rounded-2xl shadow-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+          >
+            <span className="text-xl mr-2">📱</span>
+            <span>Hemen Gönder</span>
+          </a>
         </div>
-      </section>
-
+      </div>
     </main>
   );
 }
