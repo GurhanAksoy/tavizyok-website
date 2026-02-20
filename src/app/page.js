@@ -32,7 +32,7 @@ export default function Home() {
           {/* Main Message - Bütünleşik Tasarım */}
           <div className="text-center max-w-4xl mx-auto space-y-6 mb-12">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Haksızlığa <span className="text-red-600">Sessiz Kalmayın</span>
+              Türkiye'nin <span className="text-red-600">Vatandaş Haber Platformu</span>
             </h1>
             
             {/* İhbar + Vatandaş Haberciliği Birleşik Bölüm */}
